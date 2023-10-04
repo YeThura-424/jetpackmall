@@ -89,7 +89,7 @@
                                 @endphp
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src=" {{asset($photo)}}"  style="width: 100px; height: 100px; object-fit: cover;">
+                                        <img src=" {{asset($photo)}}" style="width: 100px; height: 100px; object-fit: cover;">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6> {{Str::limit($topitem->name)}} </h6>
@@ -122,7 +122,7 @@
                                 @endphp
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src=" {{asset($photo)}} "  style="width: 100px; height: 100px; object-fit: cover;">
+                                        <img src=" {{asset($photo)}} " style="width: 100px; height: 100px; object-fit: cover;">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6> {{$name}} </h6>
