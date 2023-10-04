@@ -32,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
         $brands = Brand::all();
         $subcategories = Subcategory::inRandomOrder()->limit(11)->get(); // take only 11 random data from database
         $townships = Township::all();
-        View::share('data',[$brands,$subcategories,$townships]);
+        View::share('data', [$brands, $subcategories, $townships]);
     }
 }
