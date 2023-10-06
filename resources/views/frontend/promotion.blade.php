@@ -1,19 +1,19 @@
 <x-frontend>
-	<section class="breadcrumb-section set-bg subtitle">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="breadcrumb__text">
-						<h2> Promotion </h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Breadcrumb Section End -->
+    <section class="breadcrumb-section set-bg subtitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2> Promotion </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
 
-	<!-- Product Section Begin -->
-	<section class="product spad">
+    <!-- Product Section Begin -->
+    <section class="product spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
@@ -111,34 +111,34 @@
                         </div>
                         <div class="sidebar__item">
                             <div class="latest-product__text">
-                        <h4>Latest Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                @foreach($latestitems as $latestitem)
-                                @php
-                                $photos = json_decode($latestitem->photo);
-                                $photo=$photos[0];
-                                $latest_unitprice = $latestitem->price;
-                                $latest_discount = $latestitem->discount;
-                                @endphp
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src=" {{asset($photo)}}" style="width: 100px; height: 100px; object-fit: cover;">
+                                <h4>Latest Products</h4>
+                                <div class="latest-product__slider owl-carousel">
+                                    <div class="latest-prdouct__slider__item">
+                                        @foreach($latestitems as $latestitem)
+                                        @php
+                                        $photos = json_decode($latestitem->photo);
+                                        $photo=$photos[0];
+                                        $latest_unitprice = $latestitem->price;
+                                        $latest_discount = $latestitem->discount;
+                                        @endphp
+                                        <a href="#" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src=" {{asset($photo)}}" style="width: 100px; height: 100px; object-fit: cover;">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6> {{Str::limit($latestitem->name,20)}} </h6>
+                                                @if($latest_discount)
+                                                <span> {{$latest_discount}} MMK</span>
+                                                <del class="text-muted"> {{$latest_unitprice}} MMK</del>
+                                                @else
+                                                <span> {{$latest_unitprice}} MMK</span>
+                                                @endif
+                                            </div>
+                                        </a>
+                                        @endforeach
                                     </div>
-                                    <div class="latest-product__item__text">
-                                        <h6> {{Str::limit($latestitem->name,20)}} </h6>
-                                        @if($latest_discount)
-                                        <span> {{$latest_discount}} MMK</span>
-                                        <del class="text-muted"> {{$latest_unitprice}} MMK</del>
-                                        @else
-                                        <span> {{$latest_unitprice}} MMK</span>
-                                        @endif
-                                    </div>
-                                </a>
-                                @endforeach
+                                </div>
                             </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>
@@ -150,13 +150,13 @@
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
                                 @foreach($percent_promotions as $percent_promotion)
-                                    @php 
-                                    $photos = json_decode($percent_promotion->photo);
-                                    $photo=$photos[0];
-                                    $original_price = $percent_promotion->price;
-                                    $discount_amount = $percent_promotion->item_discount->amount;
-                                    $discount_price = $original_price - ($original_price * ($discount_amount/100));
-                                    @endphp
+                                @php
+                                $photos = json_decode($percent_promotion->photo);
+                                $photo=$photos[0];
+                                $original_price = $percent_promotion->price;
+                                $discount_amount = $percent_promotion->item_discount->amount;
+                                $discount_price = $original_price - ($original_price * ($discount_amount/100));
+                                @endphp
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
@@ -211,11 +211,11 @@
                         $photos = json_decode($promotionitem->photo);
                         $photo=$photos[0];
                         if($discountprice > 0){
-                            $price = $unitprice - $discountprice;
+                        $price = $unitprice - $discountprice;
                         } else {
-                            $price = $unitprice;
+                        $price = $unitprice;
                         }
-                        
+
                         @endphp
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -239,11 +239,11 @@
                         <a href="#">2</a>
                         <a href="#">3</a>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-	<!-- Product Section End -->
+    <!-- Product Section End -->
 </x-frontend>
