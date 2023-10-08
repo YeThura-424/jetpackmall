@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         // dd($categories);
-        return view('backend.category.list',compact('categories'));
+        return view('backend.category.list', compact('categories'));
     }
 
     /**
@@ -37,34 +37,34 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // adding data to database 
+    // adding data to database
     public function store(Request $request)
     {
         // dd($request);
         $validator = $request->validate([
-            'name' => ['required','string','max:255','unique:categories'],
+            'name' => ['required', 'string', 'max:255', 'unique:categories'],
             'photo' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
         // check the validation
         if ($validator) {
             $name = $request->name;
             $photo = $request->photo;
-                // dd($photo);
+            // dd($photo);
 
-                //File Uplode
+            //File Uplode
 
-            $imageName = time().'.'.$photo->extension();
-            $photo->move(public_path('images/category'),$imageName);
-            $filepath = 'images/category/'.$imageName;
+            $imageName = time() . '.' . $photo->extension();
+            $photo->move(public_path('images/category'), $imageName);
+            $filepath = 'images/category/' . $imageName;
 
-                //Data insert
+            //Data insert
             $category = new Category;
             $category->name = $name;
             $category->photo = $filepath;
             $category->save();
 
-            return redirect()->route('backside.category.index')->with("successMsg",'New Category is ADDED in your data');
-                                                                    // successmsg ka session name
+            return redirect()->route('backside.category.index')->with("successMsg", 'New Category is ADDED in your data');
+            // successmsg ka session name
         } else {
             return redirect::back()->withErrors($validator);
         }
@@ -87,13 +87,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // editing data 
+    // editing data
     public function edit($id)
     {
-       // dd($id);
+        // dd($id);
         $category = Category::find($id);
         // dd($category);
-        return view('backend.category.edit',compact('category')); //data htae pay chin yin compact ko use 
+        return view('backend.category.edit', compact('category')); //data htae pay chin yin compact ko use
     }
 
     /**
@@ -106,32 +106,31 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
 
-        
+
         $name = $request->name;
         $newphoto = $request->photo;
         $oldphoto = $request->oldPhoto;
-               // dd($name);
-               // dd($newphoto);
-               // dd($oldphoto);
+        // dd($name);
+        // dd($newphoto);
+        // dd($oldphoto);
         if ($request->hasFile('photo')) {
-           $imageName = time().'.'.$newphoto->extension();
-           $newphoto->move(public_path('images/category'),$imageName);
-           $filepath = 'images/category/'.$imageName;
-           if (\File::exists(public_path($oldphoto))) {
-               \File::delete(public_path($oldphoto));
-           }
-       } else {
-           $filepath = $oldphoto;
-       }
+            $imageName = time() . '.' . $newphoto->extension();
+            $newphoto->move(public_path('images/category'), $imageName);
+            $filepath = 'images/category/' . $imageName;
+            if (\File::exists(public_path($oldphoto))) {
+                \File::delete(public_path($oldphoto));
+            }
+        } else {
+            $filepath = $oldphoto;
+        }
 
-               // Data update
-       $category = Category::find($id);
-       $category->name = $name;
-       $category->photo = $filepath;
-       $category->save();
-       return redirect()->route('backside.category.index')->with('successMsg','Existing Category is UPDATED in your data');
-       
-   }
+        // Data update
+        $category = Category::find($id);
+        $category->name = $name;
+        $category->photo = $filepath;
+        $category->save();
+        return redirect()->route('backside.category.index')->with('successMsg', 'Existing Category is UPDATED in your data');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -144,6 +143,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return redirect()->route('backside.category.index')->with('successMsg','Existing Category is DELETED in your data');
+        return redirect()->route('backside.category.index')->with('successMsg', 'Existing Category is DELETED in your data');
     }
 }
