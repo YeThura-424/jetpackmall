@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-	use SoftDeletes;
-	protected $fillable = [
-		'name','photo'
-	];
+    use SoftDeletes;
+    protected $fillable = [
+        'name',
+        'photo'
+    ];
 
 
-	public function subcategories()
-	{
-		return $this->hasMany('App\Subcategory');
-	}
+    public function subcategories()
+    {
+        return $this->hasMany('App\Subcategory');
+    }
 }
