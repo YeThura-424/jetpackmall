@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index()
     {
         $users = User::role('customer')->get()->count();
-        $pendingOrder = Order::where('status','pending')->get()->count();
-        return view('backend.dashboard',compact('users','pendingOrder'));
+        $pendingOrder = Order::where('status', 'pending')->get()->count();
+        return view('backend.dashboard', compact('users', 'pendingOrder'));
     }
 }
