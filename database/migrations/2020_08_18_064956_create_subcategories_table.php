@@ -6,29 +6,29 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSubcategoriesTable extends Migration
 {
-        /**
-        * Run the migrations.
-        *
-        * @return void
-        */
-        public function up()
-        {
-            Schema::create('subcategories', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
-                $table->softDeletes();
-                $table->timestamps();
-            });
-        }
-
-        /**
-        * Reverse the migrations.
-        *
-        * @return void
-        */
-        public function down()
-        {
-            Schema::dropIfExists('subcategories');
-        }
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('subcategories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('subcategories');
+    }
+}

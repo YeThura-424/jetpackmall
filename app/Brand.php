@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Brand extends Model
 {
-	
-	use SoftDeletes;
-	protected $fillable = [
-		'name','logo'
-	];
 
-	public function items()
-	{
-		return $this->hasMany('App\Item');
-	}
+    use SoftDeletes;
+    protected $fillable = [
+        'name',
+        'logo'
+    ];
+
+    public function items()
+    {
+        return $this->hasMany('App\Item');
+    }
 }
