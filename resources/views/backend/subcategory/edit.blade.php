@@ -35,33 +35,33 @@
                             <div class="form-group row">
                                 <label for="photo_id" class="col-sm-2 col-form-label"> Category </label>
                                 <div class="col-sm-10">
-                                  <select class="form-control" name="categoryid">
-                                      <option>Choose Category</option>
-                                      @foreach($categories as $category)
-                                      <option value="{{$category->id}}" @if($categoryid == $category->id) {{"selected"}} @endif>{{$category->name}}</option>
-                                      @endforeach
-                                  </select>
-                                  <div class="text-danger form-control-feedback">
-                                    {{$errors->first('categoryid') }}
+                                    <select class="form-control" name="categoryid">
+                                        <option>Choose Category</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}" @if($categoryid==$category->id) {{"selected"}} @endif>{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="text-danger form-control-feedback">
+                                        {{$errors->first('categoryid') }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div class="form-group row">
-                            <div class="col-sm-10">
-                               <!-- button cannot be a-tag or type=button -->
-                               <button type="submit" class="btn btn-primary">
-                                <i class="icofont-save"></i>
-                                Update
-                            </button>
-                        </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <!-- button cannot be a-tag or type=button -->
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="icofont-save"></i>
+                                        Update
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
-
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</main>
+    </main>
 </x-backend>

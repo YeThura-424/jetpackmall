@@ -19,43 +19,43 @@
                             <div class="form-group row">
                                 <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="name_id" name="name">
-                                  <div class="text-danger form-control-feedback">
-                                    {{$errors->first('name') }}
+                                    <input type="text" class="form-control" id="name_id" name="name">
+                                    <div class="text-danger form-control-feedback">
+                                        {{$errors->first('name') }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="photo_id" class="col-sm-2 col-form-label"> Category </label>
-                            <div class="col-sm-10">
-                              <select class="form-control" name="categoryid">
-                                  <option>Choose Category</option>
-                                  @foreach($categories as $category)
-                                  <option value="{{$category->id}}">{{$category->name}}</option>
-                                  @endforeach
-                              </select>
-                              <div class="text-danger form-control-feedback">
-                                {{$errors->first('categoryid') }}
+                            <div class="form-group row">
+                                <label for="photo_id" class="col-sm-2 col-form-label"> Category </label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="categoryid">
+                                        <option>Choose Category</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="text-danger form-control-feedback">
+                                        {{$errors->first('categoryid') }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
 
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                         <!-- button cannot be a-tag or type=button -->
-                         <button type="submit" class="btn btn-primary">
-                            <i class="icofont-save"></i>
-                            Save
-                        </button>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <!-- button cannot be a-tag or type=button -->
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="icofont-save"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
-
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-</div>
-</main>
+    </main>
 </x-backend>
