@@ -41,23 +41,23 @@
                                     @endphp
                                     <tr>
                                         <td> {{$i++}} </td>
-                                        <td> 
+                                        <td>
                                             <div class="d-flex no-block align-items-center">
                                                 <div class="mr-3">
                                                     <img src="{{ asset($profile) }}"
-                                                    alt="user" class="rounded-circle" width="50"
-                                                    height="45" />
+                                                        alt="user" class="rounded-circle" width="50"
+                                                        height="45" />
                                                 </div>
                                                 <div class="">
                                                     <h5 class="text-dark mb-0 font-16 font-weight-medium">{{$name}}</h5>
                                                     <span class="text-muted font-14">
-                                                        {{$email}}  
+                                                        {{$email}}
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td> {{$phone}} </td>
-                                        <td> 
+                                        <td>
                                             {{$address}}
                                         </td>
                                         <td>{{$status == 1 ? 'Active' : 'Inactive'}}</td>
