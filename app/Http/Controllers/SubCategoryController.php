@@ -14,8 +14,9 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $subcategories = Subcategory::all();
-        return view('backend.subcategory.list',compact('subcategories'));
+    {
+        $subcategories = Subcategory::all();
+        return view('backend.subcategory.list', compact('subcategories'));
     }
 
     /**
@@ -26,7 +27,7 @@ class SubCategoryController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('backend.subcategory.new',compact('categories'));
+        return view('backend.subcategory.new', compact('categories'));
     }
 
     /**
@@ -38,26 +39,26 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'name' => ['required','string','unique:subcategories'],
+            'name' => ['required', 'string', 'unique:subcategories'],
             'categoryid' => 'required|numeric|min:0|not_in:0'
         ]);
 
-        if($validator){
+        if ($validator) {
             $name = $request->name;
             $categoryid = $request->categoryid;
-                // dd($categoryid);
+            // dd($categoryid);
 
-                //Data Insert
+            //Data Insert
             $subcategory = new Subcategory();
-            $subcategory->name=$name;
+            $subcategory->name = $name;
             $subcategory->category_id = $categoryid;
             $subcategory->save();
 
-            return redirect()->route('backside.subcategory.index')->with('successMsg','New Subcategory is ADDED in your data');
+            return redirect()->route('backside.subcategory.index')->with('successMsg', 'New Subcategory is ADDED in your data');
         } else {
-         return redirect::back()->withErrors($validator);
-     }
- }
+            return redirect::back()->withErrors($validator);
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -82,7 +83,7 @@ class SubCategoryController extends Controller
 
         $subcategory = Subcategory::find($id);
         $categories = Category::all();
-        return view('backend.subcategory.edit',compact('subcategory','categories'));
+        return view('backend.subcategory.edit', compact('subcategory', 'categories'));
     }
 
     /**
@@ -95,7 +96,7 @@ class SubCategoryController extends Controller
     public function update(Request $request, $id)
     {
 
-        
+
         $name = $request->name;
         $categoryid = $request->categoryid;
 
@@ -103,8 +104,7 @@ class SubCategoryController extends Controller
         $subcategory->name = $name;
         $subcategory->category_id = $categoryid;
         $subcategory->save();
-        return redirect()->route('backside.subcategory.index')->with('successMsg','Existing Subcategory is UPDATED in your data');
-        
+        return redirect()->route('backside.subcategory.index')->with('successMsg', 'Existing Subcategory is UPDATED in your data');
     }
 
     /**
@@ -120,6 +120,6 @@ class SubCategoryController extends Controller
         // dd($subcategory);
         $subcategory->delete();
 
-        return redirect()->route('backside.subcategory.index')->with('successMsg','New Subcategory is DELETED in your data');
+        return redirect()->route('backside.subcategory.index')->with('successMsg', 'New Subcategory is DELETED in your data');
     }
 }
