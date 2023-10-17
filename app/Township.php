@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Township extends Model
 {
-	use SoftDeletes;
-	protected $fillable = [
-		'name','price'
-	];
+    use SoftDeletes;
+    protected $fillable = [
+        'name',
+        'price'
+    ];
 }

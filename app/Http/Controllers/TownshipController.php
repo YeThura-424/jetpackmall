@@ -15,7 +15,7 @@ class TownshipController extends Controller
     public function index()
     {
         $townships = Township::all();
-        return view('backend.township.list',compact('townships'));
+        return view('backend.township.list', compact('townships'));
     }
 
     /**
@@ -37,7 +37,7 @@ class TownshipController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'name'=> ['required','string','max:255','unique:townships']
+            'name' => ['required', 'string', 'max:255', 'unique:townships']
         ]);
 
         // dd($request);
@@ -45,17 +45,17 @@ class TownshipController extends Controller
             $name = $request->name;
             $price = $request->price;
 
-                //Data insert 
+            //Data insert
             $township = new Township();
             $township->name = $name;
             $township->price = $price;
             $township->save();
 
-            return redirect()->route('backside.township.index')->with('successMsg','New Township is ADDED in your data');
+            return redirect()->route('backside.township.index')->with('successMsg', 'New Township is ADDED in your data');
         } else {
             return redirect::back()->withErrors($validator);
         }
-    } 
+    }
 
     /**
      * Display the specified resource.
@@ -78,7 +78,7 @@ class TownshipController extends Controller
     {
         // dd($id);
         $township = Township::find($id);
-        return view('backend.township.edit',compact('township'));
+        return view('backend.township.edit', compact('township'));
     }
 
     /**
@@ -99,7 +99,7 @@ class TownshipController extends Controller
         $township->price = $price;
         $township->save();
 
-        return redirect()->route('backside.township.index')->with('successMsg','Existing Township is UPDATED in your data');
+        return redirect()->route('backside.township.index')->with('successMsg', 'Existing Township is UPDATED in your data');
     }
 
     /**
@@ -114,6 +114,6 @@ class TownshipController extends Controller
         $township = Township::find($id);
         $township->delete();
 
-        return redirect()->route('backside.township.index')->with('successMsg','Existing Township is DELETE from your data');
+        return redirect()->route('backside.township.index')->with('successMsg', 'Existing Township is DELETE from your data');
     }
 }
