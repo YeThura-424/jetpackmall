@@ -19,7 +19,7 @@ class ItemController extends Controller
     {
         $items = Item::with('item_discount')->get();
 
-        return view('backend.item.list',compact('items'));
+        return view('backend.item.list', compact('items'));
     }
 
     /**
@@ -32,7 +32,7 @@ class ItemController extends Controller
         $subcategories = Subcategory::all();
         $brands = Brand::all();
 
-        return view('backend.item.new',compact('subcategories','brands'));
+        return view('backend.item.new', compact('subcategories', 'brands'));
     }
 
     /**
@@ -58,22 +58,20 @@ class ItemController extends Controller
 
             // FILE UPLOAD
 
-            if ($request->hasfile('images')) 
-            {
-                $i=1;
-                foreach($request->file('images') as $image)
-                {
-                    $imagename = time().$i.'.'.$image->extension();
-                    $image->move(public_path('images/item'), $imagename);  
-                    $data[] = 'images/item/'.$imagename;
+            if ($request->hasfile('images')) {
+                $i = 1;
+                foreach ($request->file('images') as $image) {
+                    $imagename = time() . $i . '.' . $image->extension();
+                    $image->move(public_path('images/item'), $imagename);
+                    $data[] = 'images/item/' . $imagename;
                     $i++;
                 }
             }
             // $photoString = implode(',', $data);
 
-            $codeno = "JPM-".rand(11111,99999);
+            $codeno = "JPM-" . rand(11111, 99999);
             dd(json_encode($data));
-            $item= new Item();
+            $item = new Item();
             $item->codeno = $codeno;
             $item->name = $name;
             $item->photo = json_encode($data);
@@ -85,9 +83,7 @@ class ItemController extends Controller
             $item->save();
 
             return redirect()->route('backside.list.index')->with("successMsg", "New Item is ADDED in your data");
-
-
-        }else{
+        } else {
             return Redirect::back()->withErrors($validator);
         }
     }
@@ -101,7 +97,7 @@ class ItemController extends Controller
     public function show($id)
     {
         $item = Item::find($id);
-        return view('backend.item.detail',compact('item'));
+        return view('backend.item.detail', compact('item'));
     }
 
     /**
@@ -117,7 +113,7 @@ class ItemController extends Controller
 
         $item = Item::find($id);
 
-        return view('backend.item.edit',compact('subcategories','brands','item'));
+        return view('backend.item.edit', compact('subcategories', 'brands', 'item'));
     }
 
     /**
@@ -145,29 +141,27 @@ class ItemController extends Controller
 
             // FILE UPLOAD
 
-            if ($request->hasfile('images')) 
-            {
+            if ($request->hasfile('images')) {
 
                 $i = 1;
-                foreach($request->file('images') as $file)
-                {
-                    $name = time().$i.'.'.$file->extension();
-                    $file->move(public_path('images/item'), $name);  
-                    $data[] = 'images/item/'.$name;
+                foreach ($request->file('images') as $file) {
+                    $name = time() . $i . '.' . $file->extension();
+                    $file->move(public_path('images/item'), $name);
+                    $data[] = 'images/item/' . $name;
                     $i++;
                 }
 
-                foreach (json_decode($request->oldphoto) as $oldphoto){
-                    if(\File::exists(public_path($oldphoto))){
+                foreach (json_decode($request->oldphoto) as $oldphoto) {
+                    if (\File::exists(public_path($oldphoto))) {
                         \File::delete(public_path($oldphoto));
                     }
                 }
-            }else{
+            } else {
                 $data = json_decode($request->oldphoto);
             }
             // $photoString = implode(',', $data);
 
-            $item= Item::find($id);
+            $item = Item::find($id);
             $item->codeno = $codeno;
             $item->name = $name;
             $item->photo = json_encode($data);
@@ -179,9 +173,7 @@ class ItemController extends Controller
             $item->save();
 
             return redirect()->route('backside.list.index')->with("successMsg", "New Item is UPDATED in your data");
-
-
-        }else{
+        } else {
             return Redirect::back()->withErrors($validator);
         }
     }
