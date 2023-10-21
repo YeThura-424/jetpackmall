@@ -45,15 +45,15 @@
                                     $unitprice = $item->price;
                                     $discount = $item->item_discount;
                                     if($discount) {
-                                        $amount = $item->item_discount->amount;
-                                        $type = $item->item_discount->type;
-                                        if($type == 'percent') {
-                                            $price = $unitprice *( $amount/100);
-                                        }else {
-                                            $price = $unitprice - $amount;
-                                        }
+                                    $amount = $item->item_discount->amount;
+                                    $type = $item->item_discount->type;
+                                    if($type == 'percent') {
+                                    $price = $unitprice *( $amount/100);
                                     }else {
-                                        $price = $unitprice;
+                                    $price = $unitprice - $amount;
+                                    }
+                                    }else {
+                                    $price = $unitprice;
                                     }
                                     $codeno = $item->codeno;
                                     $brand = $item->brand->name;
@@ -63,32 +63,33 @@
                                     @endphp
                                     <tr>
                                         <td> {{$i++}}. </td>
-                                        <td> 
+                                        <td>
                                             <div class="d-flex no-block align-items-center">
                                                 <div class="mr-3">
                                                     <img src="{{ asset($photo) }}"
-                                                    alt="user" class="rounded-circle" width="50"
-                                                    height="45" />
+                                                        alt="user" class="rounded-circle" width="50"
+                                                        height="45" />
                                                 </div>
                                                 <div class="">
                                                     <h5 class="text-dark mb-0 font-16 font-weight-medium"> {{ $codeno }} </h5>
                                                     <span class="text-muted font-14">
-                                                        <?= substr($name, 0, 30) . '...'; ?>   
+                                                        <?= substr($name, 0, 30) . '...'; ?>
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td> {{ $brand }} </td>
                                         <td>@if($discount)
-                                                @if($type == 'percent')
-                                                {{ $amount }} %
-                                                @else 
-                                                {{ $amount }} MMK
-                                                @endif
+                                            @if($type == 'percent')
+                                            {{ $amount }} %
+                                            @else
+                                            {{ $amount }} MMK
+                                            @endif
                                             @else
                                             No Discount
-                                            @endif</td>
-                                        <td> 
+                                            @endif
+                                        </td>
+                                        <td>
                                             @if($discount)
                                             {{ $price }} MMK
                                             <del class="d-block"> <?= $unitprice ?> MMK </del>
@@ -110,7 +111,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="btn btn-outline-danger" type="submit"> 
+                                                <button class="btn btn-outline-danger" type="submit">
                                                     <i class="icofont-close icofont-1x"></i>
                                                 </button>
 
