@@ -17,7 +17,7 @@
             <form action="{{ route('backside.list.store') }}" method="POST" enctype="multipart/form-data">
 
               @csrf
-              
+
               <div class="form-group row">
                 <label for="photo_id" class="col-sm-2 col-form-label"> Photo </label>
                 <div class="col-sm-10">
@@ -39,7 +39,7 @@
                     <li class="nav-item" role="presentation">
                       <a class="nav-link active" id="unitprice-tab" data-toggle="tab" href="#unitpriceTab" role="tab" aria-controls="unitpriceTab" aria-selected="true"> Unit Price </a>
                     </li>
-                    
+
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="discount-tab" data-toggle="tab" href="#discountTab" role="tab" aria-controls="discountTab" aria-selected="false"> Discount(In Percent) </a>
                     </li>
@@ -48,7 +48,7 @@
                     <div class="tab-pane fade show active" id="unitpriceTab" role="tabpanel" aria-labelledby="unitprice-tab">
                       <input type="number" name="unitprice" class="form-control">
                     </div>
-                    
+
                     <div class="tab-pane fade" id="discountTab" role="tabpanel" aria-labelledby="discount-tab">
                       <input type="number" name="discount" class="form-control">
                     </div>

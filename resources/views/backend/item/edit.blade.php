@@ -35,7 +35,7 @@
                             <input type="hidden" name="oldphoto" value="{{$item->photo}}">
                             <input type="hidden" name="codeno" value="{{ $codeno }}">
 
-                            
+
                             <div class="form-group row">
                                 <label for="photo_id" class="col-sm-2 col-form-label"> Photo </label>
                                 <div class="col-sm-10">
@@ -57,7 +57,7 @@
                                         <li class="nav-item" role="presentation">
                                             <a class="nav-link active" id="unitprice-tab" data-toggle="tab" href="#unitpriceTab" role="tab" aria-controls="unitpriceTab" aria-selected="true"> Unit Price </a>
                                         </li>
-                                        
+
                                         <li class="nav-item" role="presentation">
                                             <a class="nav-link" id="discount-tab" data-toggle="tab" href="#discountTab" role="tab" aria-controls="discountTab" aria-selected="false"> Discount(In Percent) </a>
                                         </li>
@@ -66,7 +66,7 @@
                                         <div class="tab-pane fade show active" id="unitpriceTab" role="tabpanel" aria-labelledby="unitprice-tab">
                                             <input type="number" name="unitprice" class="form-control" value="{{ $unitprice }}">
                                         </div>
-                                        
+
                                         <div class="tab-pane fade" id="discountTab" role="tabpanel" aria-labelledby="discount-tab">
                                             <input type="number" name="discount" class="form-control" value="{{ $discount }}">
                                         </div>
@@ -87,7 +87,7 @@
                                     <select class="form-control" name="brandid">
                                         <option> Choose Brand </option>
                                         @foreach($brands as $brand)
-                                        <option value="{{ $brand->id }}" @if($brand_id == $brand->id) {{'selected'}} @endif> {{ $brand->name }} </option>
+                                        <option value="{{ $brand->id }}" @if($brand_id==$brand->id) {{'selected'}} @endif> {{ $brand->name }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -99,7 +99,7 @@
                                     <select class="form-control" name="subcategoryid">
                                         <option> Choose Subcategory </option>
                                         @foreach($subcategories as $subcategory)
-                                        <option value="{{ $subcategory->id }}" @if($subcategory_id == $subcategory->id) {{'selected'}} @endif> {{ $subcategory->name }} </option>
+                                        <option value="{{ $subcategory->id }}" @if($subcategory_id==$subcategory->id) {{'selected'}} @endif> {{ $subcategory->name }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -132,15 +132,14 @@
             var public_path = "{{asset('/')}}";
 
             console.log(images);
-            var imgpre_arr=[];
+            var imgpre_arr = [];
 
 
-            for (i = 0; i < images.length; i++) 
-            {
-                var imgpre_obj={};
+            for (i = 0; i < images.length; i++) {
+                var imgpre_obj = {};
 
                 imgpre_obj.id = i;
-                imgpre_obj.src = public_path+images[i];
+                imgpre_obj.src = public_path + images[i];
 
                 imgpre_arr.push(imgpre_obj);
 
@@ -148,9 +147,9 @@
 
 
             $('.input-images').imageUploader({
-             preloaded: imgpre_arr,
-             preloadedInputName: 'oldPhoto',
-         });
+                preloaded: imgpre_arr,
+                preloadedInputName: 'oldPhoto',
+            });
 
         });
     </script>
