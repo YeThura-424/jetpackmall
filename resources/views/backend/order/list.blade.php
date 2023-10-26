@@ -41,11 +41,11 @@
                                     @foreach($orders as $order)
                                     <tr>
                                         <td> {{$i++}}. </td>
-                                        <td> 
+                                        <td>
                                             {{$order->orderdate}}
                                         </td>
                                         <td>{{$order->voucherno}}</td>
-                                        <td> 
+                                        <td>
                                             {{$order->total}}
                                         </td>
                                         <td>{{$order->status}}</td>
@@ -60,8 +60,8 @@
 
                                             <form action="" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure?')">
 
-                                               
-                                                <button class="btn btn-outline-danger" type="submit"> 
+
+                                                <button class="btn btn-outline-danger" type="submit">
                                                     <i class="icofont-close icofont-1x"></i>
                                                 </button>
 
