@@ -17,7 +17,7 @@ class ItemSeeder extends Seeder
     public function run()
     {
         $products = config('product');
-        foreach($products as $product){
+        foreach ($products as $product) {
             Item::create([
                 'codeno' => $product['codeno'],
                 'name' => $product['name'],
