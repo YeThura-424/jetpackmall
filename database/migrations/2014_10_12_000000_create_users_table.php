@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->date('register')->default(Carbon::now()); //carbon::now is used to generate current/today date
-            
             $table->string('name');
             $table->string('profile')->nullable();
             $table->string('email')->unique();
