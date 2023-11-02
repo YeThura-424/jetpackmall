@@ -16,39 +16,38 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	$this->call(TownshipSeeder::class);
-    	$this->call(RolesTableSeeder::class);
-    	$this->call(UsersTableSeeder::class);
+        $this->call(TownshipSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
         $categories = config('category');
-        echo('Seeding Category \n');
-        foreach($categories as $category){
+        echo ('Seeding Category \n');
+        foreach ($categories as $category) {
             Category::create([
                 'name' => $category['name'],
                 'photo' => $category['photo'],
             ]);
         }
 
-        echo('Seeding SubCategory \n');
+        echo ('Seeding SubCategory \n');
 
         $subcategories = config('subcategory');
-        foreach($subcategories as $subcategory){
+        foreach ($subcategories as $subcategory) {
             Subcategory::create([
                 'name' => $subcategory['name'],
                 'category_id' => $subcategory['category_id']
             ]);
         }
 
-        echo('Seeding Brand \n');
+        echo ('Seeding Brand \n');
 
         $brands = config('brand');
-        foreach($brands as $brand){
+        foreach ($brands as $brand) {
             Brand::create([
                 'name' => $brand['name'],
                 'logo' => $brand['logo'],
             ]);
         }
         $this->call(ItemSeeder::class);
-
     }
 }
