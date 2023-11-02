@@ -14,18 +14,17 @@ class TownshipSeeder extends Seeder
      */
     public function run()
     {
-    	Township::create([
-    		'name'=> 'Pazundaung',
-    		'price'=> '2000'
-    	]);
-    	Township::create([
-    		'name'=> 'Botataung',
-    		'price'=> '1000'
-    	]);
-    	Township::create([
-    		'name'=> 'Kyauktada',
-    		'price'=> '2000'
-    	]);
-    	
+        Township::create([
+            'name' => 'Pazundaung',
+            'price' => '2000'
+        ]);
+        Township::create([
+            'name' => 'Botataung',
+            'price' => '1000'
+        ]);
+        Township::create([
+            'name' => 'Kyauktada',
+            'price' => '2000'
+        ]);
     }
 }
