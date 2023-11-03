@@ -20,7 +20,7 @@ class BrandResource extends JsonResource
         return [
             'brand_id' => $this->id,
             'brand_name' => $this->name,
-            'brand_logo' => $baseurl.'/'.$this->logo,
+            'brand_logo' => $baseurl . '/' . $this->logo,
             'created_at' => $this->created_at->format('d-m-Y'),
             'updated_at' => $this->updated_at->format('d-m-Y'),
         ];

@@ -22,7 +22,7 @@ class ItemResource extends JsonResource
         // return parent::toArray($request);
         $baseurl = URL('/');
         $photos = json_decode($this->photo);
-        $photo = $baseurl.'/'.$photos[0];
+        $photo = $baseurl . '/' . $photos[0];
 
         return [
             'item_id' => $this->id,

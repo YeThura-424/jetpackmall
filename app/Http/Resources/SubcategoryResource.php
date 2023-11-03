@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Category;
 use App\Http\Resources\CategoryResource;
+
 class SubcategoryResource extends JsonResource
 {
     /**
