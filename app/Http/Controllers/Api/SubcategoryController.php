@@ -40,12 +40,12 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'name' => ['required','string','unique:subcategories'],
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'unique:subcategories'],
             'categoryid' => 'required|numeric|min:0|not_in:0'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             $status = 400;
             $message = 'Validation Error';
 
@@ -60,11 +60,11 @@ class SubcategoryController extends Controller
         } else {
             $name = $request->name;
             $categoryid = $request->categoryid;
-                // dd($categoryid);
+            // dd($categoryid);
 
-                //Data Insert
+            //Data Insert
             $subcategory = new Subcategory();
-            $subcategory->name=$name;
+            $subcategory->name = $name;
             $subcategory->category_id = $categoryid;
             $subcategory->save();
 
@@ -94,9 +94,9 @@ class SubcategoryController extends Controller
     public function show($id)
     {
         $subcategory = Subcategory::find($id);
-        if(is_null($subcategory)) {
+        if (is_null($subcategory)) {
             $status = 404;
-            $message = 'Category not found'; 
+            $message = 'Category not found';
 
             $response = [
                 'status' => $status,
@@ -105,10 +105,9 @@ class SubcategoryController extends Controller
             ];
 
             return response()->json($response);
-
         } else {
             $status = 200;
-            $message = 'Category retrieved successfully'; 
+            $message = 'Category retrieved successfully';
             $result = new SubcategoryResource($subcategory);
 
             $response = [
@@ -117,7 +116,7 @@ class SubcategoryController extends Controller
                 'message' => $message,
                 'data' => $result,
             ];
-            
+
             return response()->json($response);
         }
     }
@@ -142,7 +141,7 @@ class SubcategoryController extends Controller
         $subcategory->save();
 
         $status = 200;
-        $message = 'Subcategory update successfully'; 
+        $message = 'Subcategory update successfully';
         $result = new SubcategoryResource($subcategory);
 
         $response = [
@@ -163,12 +162,12 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-          // dd($id);
+        // dd($id);
         $subcategory = Subcategory::find($id);
         // dd($subcategory);
-        if(is_null($subcategory)) {
+        if (is_null($subcategory)) {
             $status = 404;
-            $message = 'Subategory not found'; 
+            $message = 'Subategory not found';
 
             $response = [
                 'status' => $status,
@@ -178,20 +177,19 @@ class SubcategoryController extends Controller
 
             return response()->json($response);
         } else {
-         $subcategory->delete();
+            $subcategory->delete();
 
-         $status = 200;
-         $message = 'Subcategory deleted successfully'; 
+            $status = 200;
+            $message = 'Subcategory deleted successfully';
 
 
-         $response = [
-            'success' => true,
-            'status' => $status,
-            'message' => $message,
-        ];
+            $response = [
+                'success' => true,
+                'status' => $status,
+                'message' => $message,
+            ];
 
-        return response()->json($response);
+            return response()->json($response);
+        }
     }
-
-}
 }
