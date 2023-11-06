@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\CategoryResource;
 use App\Category;
 use Validator;
+
 class CategoryController extends Controller
 {
     /**
@@ -37,12 +38,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:categories',
             'photo' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             $status = 400;
             $message = 'Validation Error';
 
@@ -57,11 +58,11 @@ class CategoryController extends Controller
         } else {
             $name = $request->name;
             $photo = $request->photo;
-            $imageName = time().'.'.$photo->extension();
-            $photo->move(public_path('images/category'),$imageName);
-            $filepath = 'images/category/'.$imageName;
+            $imageName = time() . '.' . $photo->extension();
+            $photo->move(public_path('images/category'), $imageName);
+            $filepath = 'images/category/' . $imageName;
 
-                //Data insert
+            //Data insert
             $category = new Category;
             $category->name = $name;
             $category->photo = $filepath;
@@ -91,9 +92,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        if(is_null($category)) {
+        if (is_null($category)) {
             $status = 404;
-            $message = 'Category not found'; 
+            $message = 'Category not found';
 
             $response = [
                 'status' => $status,
@@ -102,10 +103,9 @@ class CategoryController extends Controller
             ];
 
             return response()->json($response);
-
         } else {
             $status = 200;
-            $message = 'Category retrieved successfully'; 
+            $message = 'Category retrieved successfully';
             $result = new CategoryResource($category);
 
             $response = [
@@ -114,7 +114,7 @@ class CategoryController extends Controller
                 'message' => $message,
                 'data' => $result,
             ];
-            
+
             return response()->json($response);
         }
     }
@@ -135,35 +135,35 @@ class CategoryController extends Controller
         $oldphoto = $category->photo;
 
         if ($request->hasFile('photo')) {
-           $imageName = time().'.'.$newphoto->extension();
-           $newphoto->move(public_path('images/category'),$imageName);
-           $filepath = 'images/category/'.$imageName;
-           if (\File::exists(public_path($oldphoto))) {
-               \File::delete(public_path($oldphoto));
-           }
-       } else {
-           $filepath = $oldphoto;
-       }
+            $imageName = time() . '.' . $newphoto->extension();
+            $newphoto->move(public_path('images/category'), $imageName);
+            $filepath = 'images/category/' . $imageName;
+            if (\File::exists(public_path($oldphoto))) {
+                \File::delete(public_path($oldphoto));
+            }
+        } else {
+            $filepath = $oldphoto;
+        }
 
-               // Data update
+        // Data update
 
-       $category->name = $name;
-       $category->photo = $filepath;
-       $category->save();
+        $category->name = $name;
+        $category->photo = $filepath;
+        $category->save();
 
-       $status = 200;
-       $message = 'Category update successfully'; 
-       $result = new CategoryResource($category);
+        $status = 200;
+        $message = 'Category update successfully';
+        $result = new CategoryResource($category);
 
-       $response = [
-        'status' => $status,
-        'success' => true,
-        'message' => $message,
-        'data' => $result,
-    ];
+        $response = [
+            'status' => $status,
+            'success' => true,
+            'message' => $message,
+            'data' => $result,
+        ];
 
-    return response()->json($response);
-}
+        return response()->json($response);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -174,9 +174,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        if(is_null($category)) {
+        if (is_null($category)) {
             $status = 404;
-            $message = 'Category not found'; 
+            $message = 'Category not found';
 
             $response = [
                 'status' => $status,
@@ -188,7 +188,7 @@ class CategoryController extends Controller
         } else {
             $category->delete();
             $status = 200;
-            $message = 'Category deleted successfully'; 
+            $message = 'Category deleted successfully';
 
 
             $response = [
