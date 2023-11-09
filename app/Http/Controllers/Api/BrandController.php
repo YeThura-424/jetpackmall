@@ -38,12 +38,12 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:categories',
             'logo' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             $status = 400;
             $message = 'Validation Error';
 
@@ -58,13 +58,13 @@ class BrandController extends Controller
         } else {
             $name = $request->name;
             $photo = $request->logo;
-                    // var_dump($photo);die();
-                    // set image file path
-            $imagename = time().'.'.$photo->extension();
-            $photo->move(public_path('images/brand'),$imagename);
-            $filepath = 'images/brand/'.$imagename;
+            // var_dump($photo);die();
+            // set image file path
+            $imagename = time() . '.' . $photo->extension();
+            $photo->move(public_path('images/brand'), $imagename);
+            $filepath = 'images/brand/' . $imagename;
 
-                    //Data insert
+            //Data insert
             $brand = new Brand();
             $brand->name = $name;
             $brand->logo = $filepath;
@@ -93,34 +93,33 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-       $brand = Brand::find($id);
-       if(is_null($brand)) {
-        $status = 404;
-        $message = 'Brand not found'; 
+        $brand = Brand::find($id);
+        if (is_null($brand)) {
+            $status = 404;
+            $message = 'Brand not found';
 
-        $response = [
-            'status' => $status,
-            'success' => false,
-            'message' => $message,
-        ];
+            $response = [
+                'status' => $status,
+                'success' => false,
+                'message' => $message,
+            ];
 
-        return response()->json($response);
+            return response()->json($response);
+        } else {
+            $status = 200;
+            $message = 'Category retrieved successfully';
+            $result = new BrandResource($category);
 
-    } else {
-        $status = 200;
-        $message = 'Category retrieved successfully'; 
-        $result = new BrandResource($category);
+            $response = [
+                'status' => $status,
+                'success' => true,
+                'message' => $message,
+                'data' => $result,
+            ];
 
-        $response = [
-            'status' => $status,
-            'success' => true,
-            'message' => $message,
-            'data' => $result,
-        ];
-        
-        return response()->json($response);
+            return response()->json($response);
+        }
     }
-}
 
     /**
      * Update the specified resource in storage.
@@ -131,43 +130,43 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $brand = Brand::find($id);
+        $brand = Brand::find($id);
 
-       $name = $request->name;
-       $newlogo = $request->logo;
-       $oldlogo = $request->oldLogo;
+        $name = $request->name;
+        $newlogo = $request->logo;
+        $oldlogo = $request->oldLogo;
 
-       if ($request->hasFile('logo')) {
-        $imageName = time().'.'.$newlogo->extension();
-        $newlogo->move(public_path('images/brand'),$imageName);
-        $filepath = 'images/brand/'.$imageName;
-        if (\File::exists(public_path($oldlogo))) {
-            \File::delete(public_path($oldlogo));
+        if ($request->hasFile('logo')) {
+            $imageName = time() . '.' . $newlogo->extension();
+            $newlogo->move(public_path('images/brand'), $imageName);
+            $filepath = 'images/brand/' . $imageName;
+            if (\File::exists(public_path($oldlogo))) {
+                \File::delete(public_path($oldlogo));
+            }
+        } else {
+            $filepath = $oldlogo;
         }
-    } else {
-        $filepath = $oldlogo;
+
+        // data update
+
+
+        $brand->name = $name;
+        $brand->logo = $filepath;
+        $brand->save();
+
+        $status = 200;
+        $message = 'Brand update successfully';
+        $result = new BrandResource($brand);
+
+        $response = [
+            'status' => $status,
+            'success' => true,
+            'message' => $message,
+            'data' => $result,
+        ];
+
+        return response()->json($response);
     }
-
-                // data update 
-
-
-    $brand->name = $name;
-    $brand->logo = $filepath;
-    $brand->save();
-
-    $status = 200;
-    $message = 'Brand update successfully'; 
-    $result = new BrandResource($brand);
-
-    $response = [
-        'status' => $status,
-        'success' => true,
-        'message' => $message,
-        'data' => $result,
-    ];
-
-    return response()->json($response);
-}
 
     /**
      * Remove the specified resource from storage.
@@ -177,31 +176,31 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-     $brand = Brand::find($id);
-     if(is_null($brand)) {
-        $status = 404;
-        $message = 'Category not found'; 
+        $brand = Brand::find($id);
+        if (is_null($brand)) {
+            $status = 404;
+            $message = 'Category not found';
 
-        $response = [
-            'status' => $status,
-            'success' => false,
-            'message' => $message,
-        ];
+            $response = [
+                'status' => $status,
+                'success' => false,
+                'message' => $message,
+            ];
 
-        return response()->json($response);
-    } else {
-        $brand->delete();
-        $status = 200;
-        $message = 'Category deleted successfully'; 
+            return response()->json($response);
+        } else {
+            $brand->delete();
+            $status = 200;
+            $message = 'Category deleted successfully';
 
 
-        $response = [
-            'success' => true,
-            'status' => $status,
-            'message' => $message,
-        ];
+            $response = [
+                'success' => true,
+                'status' => $status,
+                'message' => $message,
+            ];
 
-        return response()->json($response);
+            return response()->json($response);
+        }
     }
-}
 }
