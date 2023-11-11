@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
