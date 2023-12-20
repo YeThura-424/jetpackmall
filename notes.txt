@@ -1,0 +1,106 @@
+SESSION_DOMAIN=192.168.100.7:8080
+SANCTUM_STATEFUL_DOMAINS=192.168.100.7:8080
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================================================================
+=> API <=         (25/8/2020)
+==========
+
+Abbriviation of API
+
+API => Application Programming Interface
+
+Two Types Of API 
+================
+
+(i). Rest
+(ii). 
+
+Rest Constraints
+================
+There are six rules to follow in rest constraints
+(i) Client server architecture: your REST API should follow a client-server architecture
+(ii) Stateless: Your REST API should stateless
+(iii) Cacheable: Your REST API should be cacheable
+(iv) Uniform interface: Your REST API should have a uniform interface
+(v) Layered System
+(vi) Code on deman 
+
+
+
+
+METHOD
+------
+CRUD -> Create Read Update Delete
+
+C -> Post
+R -> Get
+U -> PUT/PATH
+D -> Delete
+
+==================================
+
+Create Controller
+===================
+
+php artisan make:controller Api/CategoryController --api => CRUD
+
+
+Create Eloquent API Resources
+==============================
+
+=> php artisan make:resource CategoryResource
+file path=> jectpackmall >> app >> Http >> Resources
+
+
+create
+=======
+
+
+============================================================================================
+
+token for client => 
+Client ID: 1
+Client secret: 0Z9VvvhuAekX5NUgjRb7no3mCdYB6D8fMn0pp5Ke
+
+Client ID: 2
+Client secret: kl1QkFDCsDwek2WTEBNFPl0f83SyIa3dqbSnch4F
+
+============================================================================================
+login in postman using laravel passport
+
+URL => localhost:8000/oauth/token
+
+Body=> 	username	=> user table => email		
+password	=> user table => password
+client_id	=> 2(passport token)
+client_secret => token secret
+grant_type	=> password
+
+=============================================================================================
+
+after login, go back to => localhost:8000/api/user
+
+in header session => key=> Authorization
+value => login token
+
+
+
+===========================================================
+Uploading Project On Domain
+----------------------------
+=> jetpackmall zip
+=> upload on your subdomain
+=> create database on your cpanel
+=> export your database in localhost
+=> import localhost database to your cpanel database
