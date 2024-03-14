@@ -1,6 +1,7 @@
 <?php
 
 use App\Category;
+use App\Subcategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,8 +25,16 @@ class DatabaseSeeder extends Seeder
                 'photo' => $category['photo'],
             ]);
         }
+            echo('Seeding SubCategory');
 
-        // $categories = Category::all();
-
+            $subcategories = config('subcategory');
+            foreach($subcategories as $subcategory){
+            $category = Category::inRandomOrder()->get()->random();
+            Subcategory::create([
+                'name' => $subcategory['name'],
+                'photo' => $subcategory['photo'],
+                'category_id' => $category->id,
+            ]);
+            }
     }
 }
