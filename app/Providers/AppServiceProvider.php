@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $brands = Brand::all();
-        $subcategories = Subcategory::all()->random(6); // take only 11 random data from database
+        $subcategories = Subcategory::all(); // take only 11 random data from database
         $townships = Township::all();
         View::share('data',[$brands,$subcategories,$townships]);
     }
