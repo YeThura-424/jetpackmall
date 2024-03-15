@@ -40,12 +40,14 @@
                                 @php
                                 $id = $subcategory->id;
                                 $name = $subcategory->name;
+                                $photo = $subcategory->photo;
                                 $categoryid = $subcategory->category_id;
                                 $category = $subcategory->category->name;
                                 @endphp
                                 <tr>
                                     <td> {{$i++}} </td>
-                                    <td> {{$name}} </td>
+                                    <td><img src="{{asset($photo)}}" class="img-fluid" style="width: 90px; object-fit: cover;">
+                                         {{$name}} </td>
                                     <td> {{$category}} </td>
                                     <td>
                                         <a href=" {{route('backside.subcategory.edit',$id)}} " class="btn btn-warning">

@@ -41,7 +41,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{$i++}}.</td>
-                                    <td> <img src="{{asset($photo)}}" class="img-fluid" style="width: 170px; object-fit: cover;">
+                                    <td> <img src="{{asset($photo)}}" class="img-fluid" style="width: 90px; object-fit: cover;">
                                     {{$name}}</td>
                                     <td>
                                         <a href="{{route('backside.category.edit',$id)}}" class="btn btn-warning">
