@@ -16,7 +16,7 @@ class FrontendController extends Controller
 	public function index()
 	{
 		$categories = Category::all();
-		$topitems = Item::all();
+		$topitems = Item::all()->random(3);
 		// $reviewitems = Item::all()->random(3);
 		$latestitems = Item::latest()->take(3)->get();
 		// $discountitems = Item::whereNotNull('discount')->take(3)->get(); ====>>>> where table column is null

@@ -51,7 +51,7 @@
                                 @foreach($latestitems as $latestitem)
                                 @php
                                 $photos = json_decode($latestitem->photo);
-                                $photo=$photos[1];
+                                $photo=$photos[0];
                                 $latest_unitprice = $latestitem->price;
                                 $latest_discount = $latestitem->discount;
                                 @endphp
@@ -83,7 +83,7 @@
                                 @foreach($topitems as $topitem)
                                 @php
                                 $photos = json_decode($topitem->photo);
-                                $photo=$photos[1];
+                                $photo=$photos[0];
                                 $topunitprice = $topitem->price;
                                 $topdiscount = $topitem->discount;
                                 @endphp
@@ -115,7 +115,7 @@
                                 @foreach($discountitems as $discountitem)
                                 @php
                                 $photos = json_decode($discountitem->photo);
-                                $photo=$photos[1];
+                                $photo=$photos[0];
                                 $name = $discountitem->name;
                                 $reviewunitprice = $discountitem->price;
                                 $reviewdiscount = $discountitem->discount;
