@@ -43,7 +43,7 @@
                                 @endphp
                                 <tr>
                                     <td> {{$i++}} </td>
-                                    <td> <img src=" {{asset($logo)}} " class="img-fluid" style="width: 170px; object-fit: cover;">
+                                    <td> <img src=" {{asset($logo)}} " class="img-fluid" style="width: 80px; object-fit: cover;">
                                     {{$name}} </td>
                                     <td>
                                         <a href=" {{route('backside.brand.edit',$id)}} " class="btn btn-warning">
