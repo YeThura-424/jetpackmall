@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Brand;
 use App\Category;
 use App\Subcategory;
@@ -48,5 +50,7 @@ class DatabaseSeeder extends Seeder
                 'logo' => $brand['logo'],
             ]);
         }
+        $this->call(ItemSeeder::class);
+
     }
 }
