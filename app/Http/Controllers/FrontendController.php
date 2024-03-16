@@ -27,7 +27,6 @@ class FrontendController extends Controller
 	public function brand($id)
 	{
 		// dd($id);
-
 		$branditems = Item::where('brand_id',$id)->get(); // data taking from db with where method
 		// dd($branditems);
 		$brand = Brand::find($id);

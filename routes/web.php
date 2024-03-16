@@ -58,7 +58,7 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'backside', 'as' => 'bac
 	Route::resource('/item','ItemController');
 	Route::resource('/township','TownshipController');
 	Route::resource('/cart','CartController');
-
+	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 });
 
 

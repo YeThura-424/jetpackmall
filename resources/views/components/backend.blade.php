@@ -72,7 +72,7 @@
         </div>
         <ul class="app-menu">
             <li>
-                <a class="app-menu__item" href="dashboard.html">
+                <a class="app-menu__item {{Request::segment(2) === 'township' ? 'active':''}}" href="{{route('backside.dashboard.index')}}">
                     <i class="app-menu__icon icofont-dashboard"></i>
                     <span class="app-menu__label">
                         Dashboard
@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <a class="app-menu__item" href="dashboard.html">
+                <a class="app-menu__item" href="{{route('backside.dashboard.index')}}">
                     <i class="app-menu__icon icofont-prestashop"></i>
                     <span class="app-menu__label">
                         Order
