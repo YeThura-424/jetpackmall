@@ -41,7 +41,7 @@
     <!-- Latest Product Section Begin -->
     <section class="latest-product spad">
         <div class="container">
-            <div class="row">
+            <div class="row mb-4">
                 {{-- latest items --}}
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
@@ -76,7 +76,7 @@
                 </div>
                 {{-- top rated items --}}
                 <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
+                    <div class="latest-product__text ">
                         <h4>Top Rated Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">

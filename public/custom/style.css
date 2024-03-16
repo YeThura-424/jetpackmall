@@ -1,17 +1,15 @@
-@font-face
-{
-	font-family: 'all';
-	src: url('../fonts/Questrial-Regular.ttf');
+@font-face {
+    font-family: "all";
+    src: url("../fonts/Questrial-Regular.ttf");
 }
 
-@font-face
-{
-	font-family: 'main';
-	src: url('../fonts/LexendDeca-Regular.ttf');
+@font-face {
+    font-family: "main";
+    src: url("../fonts/LexendDeca-Regular.ttf");
 }
 
-*{
-	font-family: all;
+* {
+    font-family: all;
 }
 
 h1,
@@ -19,23 +17,34 @@ h2,
 h3,
 h4,
 h5,
-h6{
-	font-family: main;
+h6 {
+    font-family: main;
 }
 
-.userprofile{
-	width: 30px;
-	height: 30px;
+.userprofile {
+    width: 30px;
+    height: 30px;
 }
 
-.subtitle{
-	    background-image: linear-gradient(to bottom right, #0F2027, #203A43, #2C5364) !important;
+.subtitle {
+    background-image: linear-gradient(
+        to bottom right,
+        #0f2027,
+        #203a43,
+        #2c5364
+    ) !important;
 }
 
-.list-group-item.active{
-	background-color: #33646c !important;
+.list-group-item.active {
+    background-color: #33646c !important;
     border-color: #33646c !important;
 }
-.list-group-item.active a{
+.list-group-item.active a {
     color: #fff !important;
+}
+
+.latest-product__text {
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 0px 2px 7px 3px #ddd;
 }
