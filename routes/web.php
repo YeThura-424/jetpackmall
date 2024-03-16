@@ -59,6 +59,7 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'backside', 'as' => 'bac
 	Route::resource('/township','TownshipController');
 	Route::resource('/cart','CartController');
 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
+	Route::get('/customer','CustomerController@index')->name('customer.index');
 });
 
 
