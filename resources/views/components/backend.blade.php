@@ -155,6 +155,7 @@
     <script src=" {{asset('summernote/summernote-bs4.js')}} "></script>
     {{-- multiple image upload and preview js --}}
     <script src=" {{asset('multipleimageupload/image-uploader.min.js')}} "></script>
+    <script type="text/javascript" src="{{ asset('backend/js/plugins/chart.js')}}"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
 
