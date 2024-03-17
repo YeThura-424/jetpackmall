@@ -39,7 +39,7 @@
 						@foreach($promotionitems as $promotionitem)
 						@php
 						$photos = json_decode($promotionitem->photo);
-						$photo=$photos[1];
+						$photo=$photos[0];
 						$unitprice = $promotionitem->price;
 						$discount = $promotionitem->discount;
 						$name = $promotionitem->name;
@@ -69,7 +69,7 @@
 						@endforeach
 					</div>
 					{{-- pagination format making --}}
-					{!! $promotionitems->links() !!}
+					<!-- {!! $promotionitems->links() !!} -->
 				</div>
 			</div>
 		</div>
