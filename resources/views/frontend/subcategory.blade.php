@@ -39,7 +39,7 @@
 										@foreach($latestitems as $latestitem)
 										@php
 										$photos = json_decode($latestitem->photo);
-										$photo=$photos[1];
+										$photo=$photos[0];
 										$latest_unitprice = $latestitem->price;
 										$latest_discount = $latestitem->discount;
 										@endphp
