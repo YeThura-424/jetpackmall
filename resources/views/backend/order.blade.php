@@ -66,9 +66,6 @@
 
                                             <form action="" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure?')">
 
-                                                @csrf
-                                                @method('DELETE')
-
                                                 <button class="btn btn-outline-danger" type="submit"> 
                                                     <i class="icofont-close icofont-1x"></i>
                                                 </button>
