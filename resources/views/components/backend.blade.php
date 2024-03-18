@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <a class="app-menu__item" href="{{route('backside.dashboard.index')}}">
+                <a class="app-menu__item {{Request::segment(2) === 'order' ? 'active':''}}" href="{{route('backside.order.index')}}">
                     <i class="app-menu__icon icofont-prestashop"></i>
                     <span class="app-menu__label">
                         Order

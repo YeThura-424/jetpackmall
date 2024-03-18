@@ -60,6 +60,7 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'backside', 'as' => 'bac
 	Route::resource('/cart','CartController');
 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('/customer','CustomerController@index')->name('customer.index');
+	Route::get('/order','OrderController@index')->name('order.index');
 });
 
 

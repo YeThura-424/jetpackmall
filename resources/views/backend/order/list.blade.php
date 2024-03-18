@@ -4,7 +4,11 @@
             <div>
                 <h1> <i class="icofont-list"></i> Order </h1>
             </div>
-            
+            <ul class="app-breadcrumb breadcrumb side">
+                <a href="{{ route('backside.item.create') }}" class="btn btn-outline-primary">
+                    <i class="icofont-plus icofont-1x"></i>
+                </a>
+            </ul>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -24,7 +28,7 @@
                             <table class="table table-hover table-bordered table-striped" id="sampleTable">
                                 <thead>
                                     <tr>
-                                        <th> No. </th>
+                                        <th> # </th>
                                         <th> Name </th>
                                         <th> Brand</th>
                                         <th> Price </th>
@@ -33,7 +37,7 @@
                                 </thead>
                                 <tbody>
                                     @php $i=1; @endphp
-                                    
+                                   
                                     <tr>
                                         <td> {{$i++}}. </td>
                                         <td> 
@@ -46,14 +50,14 @@
                                                 <div class="">
                                                     <h5 class="text-dark mb-0 font-16 font-weight-medium"></h5>
                                                     <span class="text-muted font-14">
-                                                        
+                                                       
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td></td>
                                         <td> 
-                                           
+                                            
                                         </td>
                                         <td>
                                             <a href="" class="btn btn-info">
@@ -66,6 +70,7 @@
 
                                             <form action="" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure?')">
 
+                                               
                                                 <button class="btn btn-outline-danger" type="submit"> 
                                                     <i class="icofont-close icofont-1x"></i>
                                                 </button>
@@ -73,7 +78,6 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
