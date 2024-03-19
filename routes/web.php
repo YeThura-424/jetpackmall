@@ -61,6 +61,7 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'backside', 'as' => 'bac
 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('/customer','CustomerController@index')->name('customer.index');
 	Route::get('/order','OrderController@index')->name('order.index');
+	Route::get('/order/{id}','OrderController@show')->name('order.show');
 });
 
 

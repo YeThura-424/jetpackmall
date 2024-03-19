@@ -28,39 +28,29 @@
                             <table class="table table-hover table-bordered table-striped" id="sampleTable">
                                 <thead>
                                     <tr>
-                                        <th> # </th>
-                                        <th> Name </th>
-                                        <th> Brand</th>
-                                        <th> Price </th>
+                                        <th> No. </th>
+                                        <th> Date </th>
+                                        <th> Order No.</th>
+                                        <th> Total Amount </th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $i=1; @endphp
-                                   
+                                    @foreach($orders as $order)
                                     <tr>
                                         <td> {{$i++}}. </td>
                                         <td> 
-                                            <div class="d-flex no-block align-items-center">
-                                                <div class="mr-3">
-                                                    <img src=""
-                                                    alt="user" class="rounded-circle" width="50"
-                                                    height="45" />
-                                                </div>
-                                                <div class="">
-                                                    <h5 class="text-dark mb-0 font-16 font-weight-medium"></h5>
-                                                    <span class="text-muted font-14">
-                                                       
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            {{$order->orderdate}}
                                         </td>
-                                        <td></td>
+                                        <td>{{$order->voucherno}}</td>
                                         <td> 
-                                            
+                                            {{$order->total}}
                                         </td>
+                                        <td>{{$order->status}}</td>
                                         <td>
-                                            <a href="" class="btn btn-info">
+                                            <a href="{{route('backside.order.show',$order->id)}}" class="btn btn-info">
                                                 <i class="icofont-info icofont-1x"></i>
                                             </a>
 
@@ -78,6 +68,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
