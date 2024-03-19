@@ -71,7 +71,7 @@ class FrontendController extends Controller
 			$discount = $row->discount;
 
 			if($discount){
-				$price = $discount;
+				$price = $unitprice - $discount;
 			} else {
 				$price = $unitprice;
 			}
@@ -94,8 +94,20 @@ class FrontendController extends Controller
 		foreach($cart as $value) {
 			$itemid = $value->id;
 			$qty = $value->qty;
+			$price = $value->unitprice;
+			$discount = $value->discount;
+			if($discount){
+				$subtotal = ($price - $discount)*$qty;
+			} else {
+				$subtotal = $price*$qty;
+			}
 
-			$order->items()->attach($itemid,['qty'=>$qty]);
+			$order->items()->attach($itemid,[
+				'qty'=>$qty,
+				'price' => $price,
+				'discount' => $discount,
+				'subtotal' => $subtotal
+			]);
 		}
 
 		return response()->json([

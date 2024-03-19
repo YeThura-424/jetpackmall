@@ -53,9 +53,9 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->codeno}}</td>
                         <td>{{$item->pivot->qty}}</td>
-                        <td>${{$item->price}}</td>
-                        <td>${{$item->discount}}</td>
-                        <td>${{$item->pivot->qty*$item->price}}</td>
+                        <td>${{$item->pivot->price}}</td>
+                        <td>${{$item->pivot->discount}}</td>
+                        <td>${{$item->pivot->subtotal}}</td>
                       </tr>
                       @endforeach
                       <tr style="font-size:20px;">
