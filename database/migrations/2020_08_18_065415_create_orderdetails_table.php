@@ -16,6 +16,9 @@ class CreateOrderdetailsTable extends Migration
             Schema::create('orderdetails', function (Blueprint $table) {
                 $table->id();
                 $table->string('qty');
+                $table->string('price');
+                $table->string('discount');
+                $table->string('subtotal');
                 $table->foreignId('item_id')->reference('id')->on('items')->onDelete('cascade');
                 $table->foreignId('order_id')->reference('id')->on('orders')->onDelete('cascade');
                 $table->softDeletes();

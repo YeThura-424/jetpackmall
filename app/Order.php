@@ -23,7 +23,7 @@ class Order extends Model
 	public function items()
 	{
 		return $this->belongsToMany('App\Item','orderdetails','order_id','item_id')
-		->withPivot('qty')
+		->withPivot('qty','price','discount','subtotal')
 		->withTimestamps();;
 	}
 }
