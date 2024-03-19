@@ -38,8 +38,10 @@
                       <tr>
                         <th>Qty</th>
                         <th>Product</th>
-                        <th>Serial</th>
-                        <th>Description</th>
+                        <th>Product Code</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Discount</th>
                         <th>Subtotal</th>
                       </tr>
                     </thead>
@@ -50,10 +52,16 @@
                         <td>{{$i++}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->codeno}}</td>
-                        <td>{{$item->description}}</td>
-                        <td>$ {{$item->price}}</td>
+                        <td>{{$item->pivot->qty}}</td>
+                        <td>${{$item->price}}</td>
+                        <td>${{$item->discount}}</td>
+                        <td>${{$item->pivot->qty*$item->price}}</td>
                       </tr>
                       @endforeach
+                      <tr style="font-size:20px;">
+                        <td colspan="6" >Grand Total</td>
+                        <td>${{$order->total}}</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
