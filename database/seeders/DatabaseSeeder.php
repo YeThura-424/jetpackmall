@@ -33,11 +33,10 @@ class DatabaseSeeder extends Seeder
 
         $subcategories = config('subcategory');
         foreach($subcategories as $subcategory){
-            $category = Category::inRandomOrder()->get()->random();
             Subcategory::create([
                 'name' => $subcategory['name'],
                 'photo' => $subcategory['photo'],
-                'category_id' => $category->id,
+                'category_id' => $subcategory['category_id']
             ]);
         }
 

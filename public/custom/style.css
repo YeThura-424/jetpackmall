@@ -50,6 +50,7 @@ h6 {
 }
 .product__item__pic.set-bg,
 .product__discount__item__pic,
-.latest-product__item__pic {
-    background: silver;
+.latest-product__item__pic,
+.categories__item.set-bg {
+    background-color: silver;
 }

@@ -1,43 +1,44 @@
 <?php
 return [
     [
+        'id' => 1,
         'name' => 'Electronics',
-        'photo' => 'https://via.placeholder.com/340x280?text=Electronics',
+        'photo' => 'images/category/electronic.png',
     ],
-    [
+    [   'id' => 2,
         'name' => 'Clothing',
-        'photo' => 'https://via.placeholder.com/340x280?text=Clothing',
+        'photo' => 'images/category/clothing.png',
     ],
-    [
+    [   'id' => 3,
         'name' => 'Books',
-        'photo' => 'https://via.placeholder.com/340x280?text=Books',
+        'photo' => 'images/category/book.png',
     ],
-    [
+    [   'id' => 4,
         'name' => 'Home & Kitchen',
-        'photo' => 'https://via.placeholder.com/340x280?text=Home+%26+Kitchen',
+        'photo' => 'images/category/homeandkitchen.png',
     ],
-    [
-        'name' => 'Sports & Outdoors',
-        'photo' => 'https://via.placeholder.com/340x280?text=Sports+%26+Outdoors',
+    [   'id' => 5,
+        'name' => 'Sports',
+        'photo' => 'images/category/sport.png',
     ],
-    [
-        'name' => 'Health & Personal Care',
-        'photo' => 'https://via.placeholder.com/340x280?text=Health+%26+Personal+Care',
+    [   'id' => 6,
+        'name' => 'Health Care',
+        'photo' => 'images/category/health.png',
     ],
-    [
+    [   'id' => 7,
         'name' => 'Toys & Games',
-        'photo' => 'https://via.placeholder.com/340x280?text=Toys+%26+Games',
+        'photo' => 'images/category/toyandgame.png',
     ],
-    [
-        'name' => 'Beauty & Personal Care',
-        'photo' => 'https://via.placeholder.com/340x280?text=Beauty+%26+Personal+Care',
+    [   'id' => 8,
+        'name' => 'Beauty',
+        'photo' => 'images/category/beauty.png',
     ],
-    [
+    [   'id' => 9,
         'name' => 'Automotive',
-        'photo' => 'https://via.placeholder.com/340x280?text=Automotive',
+        'photo' => 'images/category/automotive.png',
     ],
-    [
-        'name' => 'Grocery & Gourmet Foods',
-        'photo' => 'https://via.placeholder.com/340x280?text=Grocery+%26+Gourmet+Foods',
+    [   'id' => 10,
+        'name' => 'Grocery',
+        'photo' => 'images/category/grocery.png',
     ],
 ];
