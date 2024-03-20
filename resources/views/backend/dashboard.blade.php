@@ -10,15 +10,15 @@
           <div class="widget-small primary coloured-icon"><i class="icon icofont-users-alt-2"></i>
             <div class="info">
               <h4>Users</h4>
-              <p><b>5</b></p>
+              <p><b>{{$users}}</b></p>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon icofont-thumbs-up"></i>
+          <div class="widget-small info coloured-icon"><i class="icon icofont-loop"></i>
             <div class="info">
-              <h4>Likes</h4>
-              <p><b>25</b></p>
+              <h4>Pending</h4>
+              <p><b>{{$pendingOrder}}</b></p>
             </div>
           </div>
         </div>
