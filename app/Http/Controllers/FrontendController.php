@@ -25,7 +25,7 @@ class FrontendController extends Controller
 	}
 	public function cateitem($id)
 	{
-		return view('backend.categoryitem');
+		return view('frontend.categoryitem');
 	}
 	public function brand($id)
 	{
