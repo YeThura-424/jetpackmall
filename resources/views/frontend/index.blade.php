@@ -9,7 +9,7 @@
                     @foreach($categories as $category)
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg=" {{$category->photo}} ">
-                            <h5><a href="#"> {{$category->name}} </a></h5>
+                            <h5><a href="{{route('cateitem',$category->id)}}"> {{$category->name}} </a></h5>
                         </div>
                     </div>
                     @endforeach

@@ -26,6 +26,7 @@ Route::get('subcategory/{id}','FrontendController@subcategory')->name('subcatego
 Route::post('order','FrontendController@order')->name('order');
 Route::get('ordersuccess','FrontendController@ordersuccess')->name('ordersuccess');
 Route::get('detail/{id}','FrontendController@detail')->name('detail');
+Route::get('/category/item/{id}','FrontendController@cateitem')->name('cateitem');
 
 
 // Basic Routing 

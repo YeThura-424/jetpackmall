@@ -23,7 +23,10 @@ class FrontendController extends Controller
 		$discountitems = Item::where('discount','>','0')->take(3)->get();   // ===>> where table column is 0
 		return view('frontend.index',compact('categories','topitems','latestitems','discountitems'));
 	}
-
+	public function cateitem($id)
+	{
+		return view('backend.categoryitem');
+	}
 	public function brand($id)
 	{
 		// dd($id);
