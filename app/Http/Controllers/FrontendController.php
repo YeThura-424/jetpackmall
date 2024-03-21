@@ -33,7 +33,10 @@ class FrontendController extends Controller
 
 		return view('frontend.brand',compact('branditems','brand'));
 	}
-
+	public function itemWithCategory($id)
+	{
+		return Category::with('subcategories.items')->find($id);
+	}
 	public function promotion()
 	{
 		$promotionitems = Item::where('discount','>','0')->paginate(6);
