@@ -26,7 +26,7 @@ class FrontendController extends Controller
 		return view('frontend.index',compact('categories','topitems','latestitems','discountitems'));
 	}
 	public function cateitem($id)
-	{	
+	{
 		$category = $this->itemWithCategory($id);
 		$subcategories = [];
 		$items = [];
@@ -36,7 +36,7 @@ class FrontendController extends Controller
 				$items [] = $item;
 			}
 		}
-		dd($subcategories);
+		// dd($subcategories);
 		return view('frontend.categoryitem',compact('category','items','subcategories'));
 	}
 	public function brand($id)
@@ -49,10 +49,9 @@ class FrontendController extends Controller
 	}
 	public function itemWithCategory($id)
 	{
-		// return Category::with(['subcategories' => function($query){
-		// 	$query->has('items');
-		// }])->find($id);
-		return Category::with('subcategories.items')->find($id);
+		return Category::with(['subcategories' => function($query){
+			$query->has('items');
+		}])->find($id);
 	}
 	public function promotion()
 	{
@@ -72,8 +71,8 @@ class FrontendController extends Controller
 		// dd($subcategories);
 		$subcategory = Subcategory::find($id);
 		$latestitems = Item::latest()->take(3)->get();
-		
-		return view('frontend.subcategory',compact('subcategories','subcategory','latestitems'));	
+
+		return view('frontend.subcategory',compact('subcategories','subcategory','latestitems'));
 	}
 
 	public function order(Request $request)
