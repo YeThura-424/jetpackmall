@@ -11,6 +11,8 @@ use App\Subcategory;
 use App\Order;
 use Carbon\Carbon;
 
+use function PHPUnit\Framework\isNull;
+
 class FrontendController extends Controller
 {
 	public function index()
@@ -24,13 +26,22 @@ class FrontendController extends Controller
 		return view('frontend.index',compact('categories','topitems','latestitems','discountitems'));
 	}
 	public function cateitem($id)
-	{
-		return view('frontend.categoryitem');
+	{	
+		$category = $this->itemWithCategory($id);
+		$subcategories = [];
+		$items = [];
+		foreach($category->subcategories as $subcategory){
+			$subcategories [] = $subcategory;
+			foreach($subcategory->items as $item){
+				$items [] = $item;
+			}
+		}
+		dd($subcategories);
+		return view('frontend.categoryitem',compact('category','items','subcategories'));
 	}
 	public function brand($id)
 	{
-		// dd($id);
-		$branditems = Item::where('brand_id',$id)->get(); // data taking from db with where method
+		$branditems = Item::where('brand_id',$id)->get();
 		// dd($branditems);
 		$brand = Brand::find($id);
 
@@ -38,6 +49,9 @@ class FrontendController extends Controller
 	}
 	public function itemWithCategory($id)
 	{
+		// return Category::with(['subcategories' => function($query){
+		// 	$query->has('items');
+		// }])->find($id);
 		return Category::with('subcategories.items')->find($id);
 	}
 	public function promotion()
@@ -54,7 +68,7 @@ class FrontendController extends Controller
 	public function subcategory($id)
 	{
 		// dd($id);
-		$subcategories = Item::where('subcategory_id',$id)->get(); // data taking from db with where method
+		$subcategories = Item::where('subcategory_id',$id)->get();
 		// dd($subcategories);
 		$subcategory = Subcategory::find($id);
 		$latestitems = Item::latest()->take(3)->get();
