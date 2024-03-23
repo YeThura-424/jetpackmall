@@ -1,55 +1,73 @@
 <?php
 return [
     [
+        'id' => 1,
         'name' => 'Apple',
-        'logo' => 'https://via.placeholder.com/260x180?text=apple'
+        'logo' => 'images/brand/apple.png'
     ],
     [
+        'id' => 2,
         'name' => 'Samsaung',
-        'logo' => 'https://via.placeholder.com/260x180?text=Samsung'
+        'logo' => 'images/brand/samsaung.png'
     ],
     [
+        'id' => 3,
         'name' => 'OnePlus',
-        'logo' => 'https://via.placeholder.com/260x180?text=OnePlus'
+        'logo' => 'images/brand/oneplus.png'
     ],
     [
+        'id' => 4,
         'name' => 'XiaoMi',
-        'logo' => 'https://via.placeholder.com/260x180?text=XiaoMi'
+        'logo' => 'images/brand/xiaomi.png'
     ],
     [
+        'id' => 5,
         'name' => 'Nike',
-        'logo' => 'https://via.placeholder.com/260x180?text=Nike'
+        'logo' => 'images/brand/nike.png'
     ],
     [
+        'id' => 6,
         'name' => 'Adidas',
-        'logo' => 'https://via.placeholder.com/260x180?text=Adidas'
+        'logo' => 'images/brand/adidas.png'
     ],
     [
+        'id' => 7,
         'name' => 'Calvin Klein',
-        'logo' => 'https://via.placeholder.com/260x180?text=Calvin Klein'
+        'logo' => 'images/brand/calvinklein.png'
     ],
     [
-        'name' => 'Samsaung',
-        'logo' => 'https://via.placeholder.com/260x180?text=Samsung'
+        'id' => 8,
+        'name' => 'Nevia',
+        'logo' => 'images/brand/nevia.png'
     ],
     [
-        'name' => 'Nivea',
-        'logo' => 'https://via.placeholder.com/260x180?text=Nivea'
-    ],
-    [
+        'id' => 9,
         'name' => 'Revlon',
-        'logo' => 'https://via.placeholder.com/260x180?text=Revlon'
+        'logo' => 'images/brand/revlon.png'
     ],
     [
+        'id' => 10,
         'name' => 'Olay',
-        'logo' => 'https://via.placeholder.com/260x180?text=Olay'
+        'logo' => 'images/brand/olay.png'
     ],
     [
+        'id' => 11,
         'name' => 'Garnier',
-        'logo' => 'https://via.placeholder.com/260x180?text=Garnier'
+        'logo' => 'images/brand/garnier.png'
     ],
     [
+        'id' => 12,
         'name' => 'Lenovo',
-        'logo' => 'https://via.placeholder.com/260x180?text=Lenovo'
+        'logo' => 'images/brand/lenovo.png'
+    ],
+    [
+        'id' => 13,
+        'name' => 'Dell',
+        'logo' => 'images/brand/dell.png'
+    ],
+    [
+        'id' => 14,
+        'name' => 'Sony',
+        'logo' => 'images/brand/sony.png'
     ],
 ];
