@@ -35,7 +35,6 @@ class DatabaseSeeder extends Seeder
         foreach($subcategories as $subcategory){
             Subcategory::create([
                 'name' => $subcategory['name'],
-                'photo' => $subcategory['photo'],
                 'category_id' => $subcategory['category_id']
             ]);
         }
