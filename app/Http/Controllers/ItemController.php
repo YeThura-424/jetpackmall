@@ -72,7 +72,7 @@ class ItemController extends Controller
             // $photoString = implode(',', $data);
 
             $codeno = "JPM-".rand(11111,99999);
-
+            dd(json_encode($data));
             $item= new Item();
             $item->codeno = $codeno;
             $item->name = $name;

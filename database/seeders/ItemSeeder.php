@@ -17,11 +17,10 @@ class ItemSeeder extends Seeder
     {
         $products = config('product');
         foreach($products as $product){
-            $photo[] = $product['photo'];
             Item::create([
                 'codeno' => $product['codeno'],
                 'name' => $product['name'],
-                'photo' => json_encode($photo),
+                'photo' => json_encode($product['photo']),
                 'price' => $product['price'],
                 'discount' => $product['discount'],
                 'description' => $product['description'],

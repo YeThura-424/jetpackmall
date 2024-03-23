@@ -3,7 +3,7 @@ return [
     [
         'codeno' => 'P0001',
         'name' => 'Iphone 11',
-        'photo' => 'https://via.placeholder.com/640x480?text=Iphone11',
+        'photo' => ["images/item/iphone11.png","images/item/iphone11-1.png"],
         'price' => 999.99,
         'discount' => 10,
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -13,7 +13,7 @@ return [
     [
         'codeno' => 'P0002',
         'name' => 'Dell Laptop',
-        'photo' => 'https://via.placeholder.com/640x480?text=Dell+Laptop',
+        'photo' => ["images/item/dell.png","images/item/dell 1.png"],
         'price' => 1499.99,
         'discount' => 20,
         'description' => 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -23,7 +23,7 @@ return [
     [
         'codeno' => 'P0003',
         'name' => 'Sony Camera',
-        'photo' => 'https://via.placeholder.com/640x480?text=Sony Camera',
+        'photo' => ["images/item/sony.png","images/item/sony 1.png"],
         'price' => 599.99,
         'discount' => 15,
         'description' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -33,7 +33,7 @@ return [
     [
         'codeno' => 'P0004',
         'name' => 'Smartwatch',
-        'photo' => 'https://via.placeholder.com/640x480?text=Smartwatch+A',
+        'photo' => ["images/item/smartwatch.png","images/item/smartwatch 1.png"],
         'price' => 199.99,
         'discount' => 5,
         'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -43,7 +43,7 @@ return [
     [
         'codeno' => 'P0005',
         'name' => 'Wireless Headphones',
-        'photo' => 'https://via.placeholder.com/640x480?text=Wireless+Headphones+B',
+        'photo' => ["images/item/headphone.png","images/item/headphone 1.png"],
         'price' => 79.99,
         'discount' => 8,
         'description' => 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -53,7 +53,7 @@ return [
     [
         'codeno' => 'P0006',
         'name' => 'Tablet',
-        'photo' => 'https://via.placeholder.com/640x480?text=Tablet+C',
+        'photo' => ["images/item/tablet.png","images/item/tablet 1.png"],
         'price' => 299.99,
         'discount' => 12,
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -63,7 +63,7 @@ return [
     [
         'codeno' => 'P0007',
         'name' => 'Fitness Tracker',
-        'photo' => 'https://via.placeholder.com/640x480?text=Fitness+Tracker+D',
+        'photo' => ["images/item/fitnesstracker.png","images/item/fitnesstracker 1.png"],
         'price' => 49.99,
         'discount' => 0,
         'description' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
@@ -73,7 +73,7 @@ return [
     [
         'codeno' => 'P0008',
         'name' => 'Gaming Console',
-        'photo' => 'https://via.placeholder.com/640x480?text=Gaming+Console+E',
+        'photo' => ["images/item/gamingconsole.jpeg"],
         'price' => 399.99,
         'discount' => 25,
         'description' => 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
@@ -83,7 +83,7 @@ return [
     [
         'codeno' => 'P0009',
         'name' => 'Cotton knit Hoodies',
-        'photo' => 'https://via.placeholder.com/640x480?text=Bluetooth+Speaker+F',
+        'photo' => ["images/item/hoodie.jpeg","images/item/hoodie 1.avif"],
         'price' => 99.99,
         'discount' => 15,
         'description' => 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
@@ -93,7 +93,7 @@ return [
     [
         'codeno' => 'P0010',
         'name' => 'Polos Shirt',
-        'photo' => 'https://via.placeholder.com/640x480?text=VR+Headset+G',
+        'photo' => ["images/item/polo.webp","images/item/polo 1.png"],
         'price' => 249.99,
         'discount' => 18,
         'description' => 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.',
