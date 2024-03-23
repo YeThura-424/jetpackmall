@@ -55,8 +55,10 @@ class FrontendController extends Controller
 	}
 	public function promotion()
 	{
-		$promotionitems = Item::where('discount','>','0')->paginate(6);
-		return view('frontend.promotion',compact('promotionitems'));
+		$promotionitems = Item::whereNotNull('discount')->paginate(6);
+		$latestitems = Item::latest()->take(3)->get();
+		// dd($promotionitems);
+		return view('frontend.promotion',compact('promotionitems','latestitems'));
 	}
 
 	public function cart()
