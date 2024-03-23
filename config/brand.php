@@ -70,4 +70,14 @@ return [
         'name' => 'Sony',
         'logo' => 'images/brand/sony.png'
     ],
+     [
+        'id' => 15,
+        'name' => 'The Penguin Press',
+        'logo' => 'images/brand/penguin.png'
+    ],
+    [
+        'id' => 16,
+        'name' => 'Burrow',
+        'logo' => 'images/brand/burrow.png'
+    ],
 ];
