@@ -31,4 +31,9 @@ class Item extends Model
 		->withPivot('qty','price','discount','subtotal')
 		->withTimestamps();;
 	}
+
+	public function discount()
+	{
+		return $this->belongsTo('App\ProductDiscount');
+	}
 }
