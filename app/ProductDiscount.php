@@ -10,7 +10,7 @@ class ProductDiscount extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type','validtill','product_id'
+        'type','value','validtill','product_id'
     ];
 
     public function products()

@@ -18,7 +18,7 @@
                 <h1> <i class="icofont-list"></i> Edit Item </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
-                <a href="{{ route('backside.item.index') }}" class="btn btn-outline-primary">
+                <a href="{{ route('backside.list.index') }}" class="btn btn-outline-primary">
                     <i class="icofont-double-left icofont-1x"></i>
                 </a>
             </ul>
@@ -27,7 +27,7 @@
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
-                        <form action="{{ route('backside.item.update',$id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('backside.list.update',$id) }}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             @method('PUT')

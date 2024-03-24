@@ -84,7 +84,7 @@ class ItemController extends Controller
             $item->brand_id = $brandid;
             $item->save();
 
-            return redirect()->route('backside.item.index')->with("successMsg", "New Item is ADDED in your data");
+            return redirect()->route('backside.list.index')->with("successMsg", "New Item is ADDED in your data");
 
 
         }else{
@@ -178,7 +178,7 @@ class ItemController extends Controller
             $item->brand_id = $brandid;
             $item->save();
 
-            return redirect()->route('backside.item.index')->with("successMsg", "New Item is UPDATED in your data");
+            return redirect()->route('backside.list.index')->with("successMsg", "New Item is UPDATED in your data");
 
 
         }else{
@@ -204,6 +204,6 @@ class ItemController extends Controller
 
         $item->delete();
 
-        return redirect()->route('backside.item.index')->with("successMsg", "New Item is DELETED in your data");
+        return redirect()->route('backside.list.index')->with("successMsg", "New Item is DELETED in your data");
     }
 }

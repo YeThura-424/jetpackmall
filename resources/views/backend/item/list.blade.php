@@ -5,7 +5,7 @@
                 <h1> <i class="icofont-list"></i> Item </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
-                <a href="{{ route('backside.item.create') }}" class="btn btn-outline-primary">
+                <a href="{{ route('backside.list.create') }}" class="btn btn-outline-primary">
                     <i class="icofont-plus icofont-1x"></i>
                 </a>
             </ul>
@@ -87,15 +87,15 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('backside.item.show',$id) }}" class="btn btn-info">
+                                            <a href="{{ route('backside.list.show',$id) }}" class="btn btn-info">
                                                 <i class="icofont-info icofont-1x"></i>
                                             </a>
 
-                                            <a href="{{ route('backside.item.edit',$id) }}" class="btn btn-warning">
+                                            <a href="{{ route('backside.list.edit',$id) }}" class="btn btn-warning">
                                                 <i class="icofont-ui-settings icofont-1x"></i>
                                             </a>
 
-                                            <form action="{{ route('backside.item.destroy',$id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure?')">
+                                            <form action="{{ route('backside.list.destroy',$id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure?')">
 
                                                 @csrf
                                                 @method('DELETE')

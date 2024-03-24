@@ -111,13 +111,24 @@
                     </span>
                 </a>
             </li>
-            <li>
-                <a class="app-menu__item {{Request::segment(2) === 'item' ? 'active':''}}" href="{{route('backside.item.index')}}">
+            <!-- <li>
+                <a class="app-menu__item {{Request::segment(2) === 'item' ? 'active':''}}" href="">
                     <i class="app-menu__icon icofont-package"></i>
                     <span class="app-menu__label">
                         Items
                     </span>
                 </a>
+            </li> -->
+            <li class="treeview">
+                <a class="app-menu__item {{Request::segment(2) === 'item' ? 'active':''}}" href="#" data-toggle="treeview">
+                    <i class="app-menu__icon icofont-package"></i>
+                    <span class="app-menu__label">Items</span>
+                    <i class="treeview-indicator icofont-rounded-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="{{route('backside.list.index')}}"><i class="icon icofont-dotted-right"></i> List</a></li>
+                    <li><a class="treeview-item" href="table-data-table.html"><i class="icon icofont-dotted-right"></i> Discount</a></li>
+                </ul>
             </li>
             <li>
                 <a class="app-menu__item {{Request::segment(2) === 'subcategory' ? 'active':''}}" href="{{route('backside.subcategory.index')}}">
@@ -158,7 +169,6 @@
     <script type="text/javascript" src="{{ asset('backend/js/plugins/chart.js')}}"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
-
     </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
@@ -169,7 +179,7 @@
                     (i[r].q = i[r].q || []).push(arguments)
                 }, i[r].l = 1 * new Date();
                 a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
+                    m = s.getElementsByTagName(o)[0];
                 a.async = 1;
                 a.src = g;
                 m.parentNode.insertBefore(a, m)
@@ -177,7 +187,6 @@
             ga('create', 'UA-72504830-1', 'auto');
             ga('send', 'pageview');
         }
-
     </script>
     @yield("script_content");
 </body>

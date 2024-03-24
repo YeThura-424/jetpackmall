@@ -5,7 +5,7 @@
                 <h1> <i class="icofont-list"></i> Order </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
-                <a href="{{ route('backside.item.create') }}" class="btn btn-outline-primary">
+                <a href="{{ route('backside.list.create') }}" class="btn btn-outline-primary">
                     <i class="icofont-plus icofont-1x"></i>
                 </a>
             </ul>
