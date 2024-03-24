@@ -57,8 +57,9 @@ class FrontendController extends Controller
 	{
 		$promotionitems = Item::whereNotNull('discount')->paginate(6);
 		$latestitems = Item::latest()->take(3)->get();
+		$categories = Category::inRandomOrder()->limit(11)->get();
 		// dd($promotionitems);
-		return view('frontend.promotion',compact('promotionitems','latestitems'));
+		return view('frontend.promotion',compact('promotionitems','latestitems','categories'));
 	}
 
 	public function cart()
