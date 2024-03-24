@@ -173,13 +173,14 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active">
+                            <li class="{{Request::segment(1) === '' ? 'active':''}}">
                                 <a href=" {{route('index')}} ">Home</a>
                             </li>
-                            <li>
+                            <li class="{{Request::segment(1) === 'promotion' ? 'active':''}}">
                                 <a href=" {{route('promotion')}} "> Promotion </a>
                             </li>
-                            <li><a href="#"> Merchants </a>
+                            <li class="{{Request::segment(1) === 'brand' ? 'active':''}}">
+                                <a href="#"> Merchants </a>
                                 <ul class="header__menu__dropdown">
                                    @foreach($data[0] as $brand)
                                    <li><a href=" {{route('brand',$brand->id)}} "> {{$brand->name}} </a></li>

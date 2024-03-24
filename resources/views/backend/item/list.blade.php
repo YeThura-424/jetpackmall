@@ -44,14 +44,15 @@
                                     $name = $item->name;
                                     $unitprice = $item->price;
                                     $discount = $item->discount;
+                                    if($discount) {
+                                        $price = $unitprice *( $discount/100);
+                                    }else {
+                                        $price = $unitprice;
+                                    }
                                     $codeno = $item->codeno;
-
                                     $brand = $item->brand->name;
                                     $codeno = $item->codeno;
-
                                     $photos = json_decode($item->photo);
-
-
                                     $photo = $photos[0];
                                     @endphp
                                     <tr>
@@ -79,10 +80,10 @@
                                             @endif</td>
                                         <td> 
                                             @if($discount)
-                                            {{ $discount }} MMK
+                                            {{ $price }} MMK
                                             <del class="d-block"> <?= $unitprice ?> MMK </del>
                                             @else
-                                            {{ $unitprice }} MMK
+                                            {{ $price }} MMK
                                             @endif
                                         </td>
                                         <td>
