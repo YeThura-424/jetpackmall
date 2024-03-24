@@ -41,7 +41,7 @@
                     </li>
                     
                     <li class="nav-item" role="presentation">
-                      <a class="nav-link" id="discount-tab" data-toggle="tab" href="#discountTab" role="tab" aria-controls="discountTab" aria-selected="false"> Discount </a>
+                      <a class="nav-link" id="discount-tab" data-toggle="tab" href="#discountTab" role="tab" aria-controls="discountTab" aria-selected="false"> Discount(In Percent) </a>
                     </li>
                   </ul>
                   <div class="tab-content mt-3" id="myTabContent">

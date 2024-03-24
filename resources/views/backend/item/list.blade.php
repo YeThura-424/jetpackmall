@@ -31,6 +31,7 @@
                                         <th> # </th>
                                         <th> Name </th>
                                         <th> Brand</th>
+                                        <th>Discount</th>
                                         <th> Price </th>
                                         <th>Action</th>
                                     </tr>
@@ -71,6 +72,11 @@
                                             </div>
                                         </td>
                                         <td> {{ $brand }} </td>
+                                        <td>@if($discount)
+                                            {{ $discount }} %
+                                            @else
+                                            No Discount
+                                            @endif</td>
                                         <td> 
                                             @if($discount)
                                             {{ $discount }} MMK
