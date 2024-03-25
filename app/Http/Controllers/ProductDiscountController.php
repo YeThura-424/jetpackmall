@@ -15,7 +15,7 @@ class ProductDiscountController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.discount.list');
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductDiscountController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.discount.new');
     }
 
     /**
