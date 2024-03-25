@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_discounts', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string('value');
+            $table->string('amount');
             $table->date('validtill');
             $table->foreignId('product_id')->reference('id')->on('products');
             $table->softDeletes();

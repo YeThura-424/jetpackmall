@@ -126,7 +126,7 @@
                     <i class="treeview-indicator icofont-rounded-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a class="treeview-item" href="{{route('backside.list.index')}}"><i class="icon icofont-dotted-right"></i> List</a></li>
+                    <li><a class="treeview-item {{Request::segment(3) === 'list' ? 'active':''}}" href="{{route('backside.list.index')}}"><i class="icon icofont-dotted-right"></i> List</a></li>
                     <li><a class="treeview-item" href="table-data-table.html"><i class="icon icofont-dotted-right"></i> Discount</a></li>
                 </ul>
             </li>
