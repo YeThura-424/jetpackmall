@@ -13,8 +13,8 @@ class ProductDiscount extends Model
         'type','value','validtill','product_id'
     ];
 
-    public function products()
+    public function product()
     {
-        return $this->hasMany('App\Item');
+        return $this->hasOne('App\Item');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ProductDiscount;
 use App\Http\Requests\StoreProductDiscountRequest;
 use App\Http\Requests\UpdateProductDiscountRequest;
+use App\Item;
 
 class ProductDiscountController extends Controller
 {
@@ -15,7 +16,8 @@ class ProductDiscountController extends Controller
      */
     public function index()
     {
-        return view('backend.discount.list');
+        $discounts = ProductDiscount::all();
+        return view('backend.discount.list',compact('discounts'));
     }
 
     /**
@@ -25,7 +27,8 @@ class ProductDiscountController extends Controller
      */
     public function create()
     {
-        return view('backend.discount.new');
+        $products = Item::all();
+        return view('backend.discount.new',compact('products'));
     }
 
     /**
@@ -36,7 +39,19 @@ class ProductDiscountController extends Controller
      */
     public function store(StoreProductDiscountRequest $request)
     {
-        //
+        $product_id = $request->product_id;
+        $type = $request->type;
+        $amount = $request->amount;
+        $valid_date = $request->valid_date;
+
+        $product_discount = new ProductDiscount;
+        $product_discount->product_id = $product_id;
+        $product_discount->type = $type;
+        $product_discount->amount = $amount;
+        $product_discount->validtill = $valid_date;
+        $product_discount->save();
+
+        return redirect()->route('backside.discount.index')->with("successMsg",'New Discount is ADDED in your data'); 
     }
 
     /**

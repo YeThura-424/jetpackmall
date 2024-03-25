@@ -37,16 +37,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
+                                    @php $i = 1 @endphp
+                                    @foreach($discounts as $discount)
                                     <tr>
-                                        <td> 1 </td>
+                                        <td> {{$i++}} </td>
                                         <td> 
-                                            Hello
+                                            {{$discount->product_id}}
                                         </td>
-                                        <td>hi </td>
-                                        <td>hay</td>
+                                        <td>{{$discount->type}} </td>
+                                        <td>{{$discount->amount}}</td>
                                         <td> 
-                                           wayy
+                                           {{$discount->validtill}}
                                         </td>
                                         <td>
                                             <a href="" class="btn btn-info">
@@ -67,6 +68,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
