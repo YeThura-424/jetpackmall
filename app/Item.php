@@ -32,7 +32,7 @@ class Item extends Model
 		->withTimestamps();;
 	}
 
-	public function discount()
+	public function item_discount()
 	{
 		return $this->hasOne('App\ProductDiscount');
 	}

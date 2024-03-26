@@ -43,9 +43,14 @@
                                     $id = $item->id;
                                     $name = $item->name;
                                     $unitprice = $item->price;
-                                    $discount = $item->discount;
+                                    $discount = $item->item_discount->amount;
                                     if($discount) {
-                                        $price = $unitprice *( $discount/100);
+                                        $discount_type = $item->item_discount->type;
+                                        if($discount_type == 'percent') {
+                                            $price = $unitprice *( $discount/100);
+                                        }else {
+                                            $price = $unitprice - $discount;
+                                        }
                                     }else {
                                         $price = $unitprice;
                                     }

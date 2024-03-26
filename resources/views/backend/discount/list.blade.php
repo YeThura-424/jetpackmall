@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $i = 1 @endphp
+                                    @php $i = 1;@endphp
                                     @foreach($discounts as $discount)
                                     <tr>
                                         <td> {{$i++}} </td>

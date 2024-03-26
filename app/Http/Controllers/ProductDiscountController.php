@@ -46,7 +46,7 @@ class ProductDiscountController extends Controller
         $valid_date = $request->valid_date;
 
         $product_discount = new ProductDiscount;
-        $product_discount->product_id = $product_id;
+        $product_discount->item_id = $product_id;
         $product_discount->type = $type;
         $product_discount->amount = $amount;
         $product_discount->validtill = $valid_date;
