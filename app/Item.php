@@ -34,6 +34,6 @@ class Item extends Model
 
 	public function discount()
 	{
-		return $this->belongsTo('App\ProductDiscount');
+		return $this->hasOne('App\ProductDiscount');
 	}
 }

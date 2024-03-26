@@ -42,7 +42,7 @@
                                     <tr>
                                         <td> {{$i++}} </td>
                                         <td> 
-                                            {{$discount->product_id}}
+                                            {{$discount->product->name}}
                                         </td>
                                         <td>{{$discount->type}} </td>
                                         <td>{{$discount->amount}}</td>

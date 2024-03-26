@@ -15,6 +15,6 @@ class ProductDiscount extends Model
 
     public function product()
     {
-        return $this->hasOne('App\Item');
+        return $this->belongsTo('App\Item');
     }
 }

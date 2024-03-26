@@ -17,6 +17,7 @@ class ProductDiscountController extends Controller
     public function index()
     {
         $discounts = ProductDiscount::all();
+        // dd($discounts);
         return view('backend.discount.list',compact('discounts'));
     }
 
