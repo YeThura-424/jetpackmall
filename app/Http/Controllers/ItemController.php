@@ -17,7 +17,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::with('item_discount')->get();
 
         return view('backend.item.list',compact('items'));
     }

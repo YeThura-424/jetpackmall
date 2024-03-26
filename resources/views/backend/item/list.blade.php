@@ -43,13 +43,14 @@
                                     $id = $item->id;
                                     $name = $item->name;
                                     $unitprice = $item->price;
-                                    $discount = $item->item_discount->amount;
+                                    $discount = $item->item_discount;
                                     if($discount) {
-                                        $discount_type = $item->item_discount->type;
-                                        if($discount_type == 'percent') {
-                                            $price = $unitprice *( $discount/100);
+                                        $amount = $item->item_discount->amount;
+                                        $type = $item->item_discount->type;
+                                        if($type == 'percent') {
+                                            $price = $unitprice *( $amount/100);
                                         }else {
-                                            $price = $unitprice - $discount;
+                                            $price = $unitprice - $amount;
                                         }
                                     }else {
                                         $price = $unitprice;
@@ -79,7 +80,11 @@
                                         </td>
                                         <td> {{ $brand }} </td>
                                         <td>@if($discount)
-                                            {{ $discount }} %
+                                                @if($type == 'percent')
+                                                {{ $amount }} %
+                                                @else 
+                                                {{ $amount }} MMK
+                                                @endif
                                             @else
                                             No Discount
                                             @endif</td>

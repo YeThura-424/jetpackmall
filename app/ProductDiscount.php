@@ -13,7 +13,7 @@ class ProductDiscount extends Model
         'type','value','validtill','item_id'
     ];
 
-    public function product()
+    public function item()
     {
         return $this->belongsTo('App\Item');
     }
