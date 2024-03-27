@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
+use App\Subcategory;
 use App\ProductDiscount;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductDiscountRequest;
 use App\Http\Requests\UpdateProductDiscountRequest;
-use App\Item;
 
 class ProductDiscountController extends Controller
 {
@@ -26,9 +28,11 @@ class ProductDiscountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $products = Item::all();
+        $subcate = Subcategory::find($request->sub_id);
+        logger($request->all());
         return view('backend.discount.new',compact('products'));
     }
 
@@ -52,7 +56,7 @@ class ProductDiscountController extends Controller
         $product_discount->validtill = $valid_date;
         $product_discount->save();
 
-        return redirect()->route('backside.discount.index')->with("successMsg",'New Discount is ADDED in your data'); 
+        return redirect()->route('backside.discount.index')->with("successMsg",'New Discount is ADDED in your data');
     }
 
     /**
