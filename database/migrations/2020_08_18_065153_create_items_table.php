@@ -19,7 +19,6 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->longText('photo');
             $table->string('price');
-            $table->string('discount')->nullable();
             $table->longText('description')->nullable();
             $table->foreignId('subcategory_id')->reference('id')->on('subcategories')->onDelete('cascade');
             $table->foreignId('brand_id')->reference('id')->on('brands')->onDelete('cascade');

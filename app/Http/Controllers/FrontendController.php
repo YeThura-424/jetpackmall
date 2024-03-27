@@ -22,7 +22,7 @@ class FrontendController extends Controller
 		// $reviewitems = Item::all()->random(3);
 		$latestitems = Item::latest()->take(3)->get();
 		// $discountitems = Item::whereNotNull('discount')->take(3)->get(); ====>>>> where table column is null
-		$discountitems = Item::where('discount','>','0')->take(3)->get();   // ===>> where table column is 0
+		$discountitems = Item::with('item_discount')->inRandomOrder()->limit(3);
 		return view('frontend.index',compact('categories','topitems','latestitems','discountitems'));
 	}
 	public function cateitem($id)
@@ -55,7 +55,7 @@ class FrontendController extends Controller
 	}
 	public function promotion()
 	{
-		$promotionitems = Item::whereNotNull('discount')->paginate(6);
+		$promotionitems = Item::with('item_discount')->paginate(6);
 		$latestitems = Item::latest()->take(3)->get();
 		$categories = Category::inRandomOrder()->limit(11)->get();
 		// dd($promotionitems);

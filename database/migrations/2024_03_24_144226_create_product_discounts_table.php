@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('amount');
-            $table->date('validtill');
+            $table->date('validtill')->nullable();
             $table->foreignId('item_id')->reference('id')->on('items');
             $table->softDeletes();
             $table->timestamps();
