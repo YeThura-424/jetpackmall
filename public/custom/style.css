@@ -85,3 +85,15 @@ ul.subcategories__slider.owl-carousel.owl-loaded.owl-drag {
     right: 0px;
     box-shadow: -7px 0px 5px -1px #e2e1e1;
 }
+.featured__controls ul li.active {
+    border-bottom: 2px solid #33646c;
+}
+.featured__controls ul li {
+    list-style: none;
+    font-size: 18px;
+    color: #1c1c1c;
+    display: inline;
+    padding-bottom: 14px;
+    position: relative;
+    cursor: pointer;
+}

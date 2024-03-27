@@ -19,7 +19,6 @@
                     <div class="featured__controls">
                         <ul class="subcategories__slider owl-carousel">
                             <li class="active" data-filter="*">All</li>
-                            <li class="active" data-filter="*">All</li>
                             @foreach ($subcategories as $subcategory)
                                 <li class="item" data-filter=".{{ $subcategory->name }}">{{ $subcategory->name }}
                                 </li>
