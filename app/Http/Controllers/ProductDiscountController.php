@@ -28,12 +28,22 @@ class ProductDiscountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         $products = Item::all();
-        $subcate = Subcategory::find($request->sub_id);
-        logger($request->all());
         return view('backend.discount.new',compact('products'));
+    }
+
+    public function getProductInfo(Request $request){
+
+        $product = Item::find($request->product_id);
+        $data = [
+            'price' => $product->price,
+            'subcategory' => $product->subcategory->name,
+            'brand' => $product->brand->name
+        ];
+        logger($data);
+        return response()->json($data, 200);
     }
 
     /**

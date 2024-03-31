@@ -27,6 +27,7 @@
                                             <option value="{{ $product->id }}"> {{ $product->name }}</option>
                                         @endforeach
                                     </select>
+                                    <div class="row infos"></div>
                                     <div class="text-danger form-control-feedback">
                                         {{ $errors->first('product_id') }}
                                     </div>
@@ -93,15 +94,24 @@
 
                 $('.products').on('change', function() {
                     let product_id = $(this).val();
-                    console.log(product_id);
+                    let price, brand, subcategory;
                     $.ajax({
-                        url: "http://localhost:8000/backside/item/discount/create",
-                        type: 'get',
+                        url: "/backside/item/discount/productInfo",
+                        type: 'post',
                         data: {
+                            "_token": "{{ csrf_token() }}",
                             product_id: product_id
                         },
                         success: function(response) {
-                            console.log(response);
+                            price = response.price;
+                            subcategory = response.subcategory;
+                            brand = response.brand;
+                            $productInformation = `
+                                <div class="col-md-4 text-secondary d-flex justify-content-start align-items-center mt-2"><span class="border border-success px-5 py-2 rounded">${subcategory}</span></div>
+                                <div class="col-md-4 text-secondary d-flex justify-content-start align-items-center mt-2"><span class="border border-success px-5 py-2 rounded">${brand}</span></div>
+                                <div class="col-md-4 text-secondary d-flex justify-content-start align-items-center mt-2"><span class="border border-success px-5 py-2 rounded">${price} $</span></div>
+                            `;
+                            $('.infos').html($productInformation);
                         }
                     });
                 });

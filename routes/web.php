@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','FrontendController@index')->name('index');
 
 Auth::routes();
-// frontend 
+// frontend
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('brand/{id}','FrontendController@brand')->name('brand');
@@ -29,7 +29,7 @@ Route::get('detail/{id}','FrontendController@detail')->name('detail');
 Route::get('/category/item/{id}','FrontendController@cateitem')->name('cateitem');
 
 
-// Basic Routing 
+// Basic Routing
 
   // GET Method
 
@@ -58,6 +58,7 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'backside', 'as' => 'bac
 	Route::resource('/brand','BrandController');
 	Route::resource('/item/list','ItemController');
 	Route::resource('/item/discount','ProductDiscountController');
+    Route::post('/item/discount/productInfo','ProductDiscountController@getProductInfo');
 	Route::resource('/township','TownshipController');
 	Route::resource('/cart','CartController');
 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
