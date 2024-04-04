@@ -150,20 +150,18 @@
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
                                 @foreach($percent_promotions as $percent_promotion)
-                                    $unitprice = $percent_promotion->price;
-                                    $discountprice = $percent_promotion->discount;
+                                    @php 
                                     $photos = json_decode($percent_promotion->photo);
                                     $photo=$photos[0];
-                                    if($discountprice > 0){
-                                        $price = $unitprice - $discountprice;
-                                    } else {
-                                        $price = $unitprice;
-                                    }
+                                    $original_price = $percent_promotion->price;
+                                    $discount_amount = $percent_promotion->item_discount->amount;
+                                    $discount_price = $original_price - ($original_price * ($discount_amount/100));
+                                    @endphp
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="img/product/discount/pd-1.jpg">
-                                            <div class="product__discount__percent">-20%</div>
+                                            data-setbg="{{asset($photo)}}">
+                                            <div class="product__discount__percent">-{{$discount_amount}}%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -171,9 +169,9 @@
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                            <span>{{$percent_promotion->subcategory->name}}</span>
+                                            <h5><a href="#">{{$percent_promotion->name}}</a></h5>
+                                            <div class="product__item__price">${{$discount_price}} <span>${{$original_price}}</span></div>
                                         </div>
                                     </div>
                                 </div>
