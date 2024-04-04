@@ -273,7 +273,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>{{count($promotionitems)}}</span> Products found</h6>
+                                    <h6><span>{{count($fixed_promotions)}}</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -285,7 +285,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($promotionitems as $promotionitem)
+                        @foreach($fixed_promotions as $promotionitem)
                         @php
                         $unitprice = $promotionitem->price;
                         $discountprice = $promotionitem->discount;

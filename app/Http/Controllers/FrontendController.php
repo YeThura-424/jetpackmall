@@ -56,10 +56,16 @@ class FrontendController extends Controller
 	}
 	public function promotion()
 	{
-		$promotionitems = Item::with('item_discount')->paginate(6);
+		$date = Carbon::now()->format('Y-m-d');
+		$percent_promotions = Item::whereHas('item_discount',function($query) use($date){
+			$query->where('type','percent')->whereDate('validtill','>=',$date);
+		})->get();
+		$fixed_promotions = Item::whereHas('item_discount',function($query){
+			$query->where('type','fixed');
+		})->get();
 		$latestitems = Item::latest()->take(3)->get();
 		$categories = Category::inRandomOrder()->limit(11)->get();
-		return view('frontend.promotion',compact('promotionitems','latestitems','categories'));
+		return view('frontend.promotion',compact('percent_promotions','fixed_promotions','latestitems','categories'));
 	}
 
 	public function cart()
