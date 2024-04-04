@@ -30,7 +30,9 @@ class ProductDiscountController extends Controller
      */
     public function create()
     {
-        $products = Item::all();
+        $products = Item::whereDoesntHave('item_discount',function($query){
+           $query->whereNull('deleted_at');
+        })->get();
         return view('backend.discount.new',compact('products'));
     }
 
