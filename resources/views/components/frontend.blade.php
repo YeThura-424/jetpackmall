@@ -272,7 +272,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href=" {{route('index')}} "><img src="{{asset('frontend/img/logo.png')}}" alt=""></a>
+                            <a href=" {{route('index')}} ">JETPACK MALL</a>
                         </div>
                         <ul>
                             <li>Address: Junction City, Yangon</li>

@@ -97,3 +97,13 @@ ul.subcategories__slider.owl-carousel.owl-loaded.owl-drag {
     position: relative;
     cursor: pointer;
 }
+.footer__about__logo {
+    font-size: 26px;
+}
+.footer__about__logo a {
+    color: #33646c;
+    font-weight: 800;
+}
+.footer__about__logo a:hover {
+    color: #33646c;
+}
